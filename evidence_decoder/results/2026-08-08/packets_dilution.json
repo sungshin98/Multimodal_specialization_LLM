@@ -1,0 +1,1787 @@
+[
+  {
+    "schema_version": "3.0",
+    "original_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "normalized_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "감독 A"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "연출 스타일",
+          "편집",
+          "서사"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+        "candidate_k": 50,
+        "final_k": 3,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "감독 A의 초기작은 인물 중심 서사와 느린 호흡을 특징으로 한다. 평론가들은 특히 장면 전환을 최소화하고 한 컷을 길게 유지하는 방식이 인물의 내면을 드러내는 데 기여했다고 평가했다. 이러한 연출은 데뷔작부터 세 번째 작품까지 일관되게 나타난다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "최근작에서는 편집 속도가 눈에 띄게 빨라졌다. 평균 숏 길이가 이전 작품의 절반 수준으로 줄었으며, 교차 편집을 적극적으로 활용해 긴장감을 조성한다. 이는 장르적 관습을 의도적으로 끌어들인 결과로 해석된다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "색채 설계에서도 변화가 확인된다. 초기작이 저채도의 청색 계열을 주조색으로 삼았다면, 최근작은 주황과 청록의 보색 대비를 전면에 내세운다. 이 변화는 촬영감독 교체 시점과 일치한다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_film_0",
+      "group": "dilution/0%",
+      "scenario": "film",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 3,
+      "gold_total": 3,
+      "irrelevant_total": 0,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기작은 인물 중심 서사와 느린 호흡, 긴 컷을 사용했다",
+        "최근작은 편집 속도가 빨라지고 평균 숏 길이가 짧아졌다",
+        "색채가 저채도 청색에서 주황-청록 보색 대비로 바뀌었다"
+      ],
+      "irrelevant_topics": [],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "normalized_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "감독 A"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "연출 스타일",
+          "편집",
+          "서사"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+        "candidate_k": 50,
+        "final_k": 5,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "감독 A의 초기작은 인물 중심 서사와 느린 호흡을 특징으로 한다. 평론가들은 특히 장면 전환을 최소화하고 한 컷을 길게 유지하는 방식이 인물의 내면을 드러내는 데 기여했다고 평가했다. 이러한 연출은 데뷔작부터 세 번째 작품까지 일관되게 나타난다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "최근작에서는 편집 속도가 눈에 띄게 빨라졌다. 평균 숏 길이가 이전 작품의 절반 수준으로 줄었으며, 교차 편집을 적극적으로 활용해 긴장감을 조성한다. 이는 장르적 관습을 의도적으로 끌어들인 결과로 해석된다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "색채 설계에서도 변화가 확인된다. 초기작이 저채도의 청색 계열을 주조색으로 삼았다면, 최근작은 주황과 청록의 보색 대비를 전면에 내세운다. 이 변화는 촬영감독 교체 시점과 일치한다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "감독 B의 최근작은 편집 속도를 오히려 늦추고 롱테이크 비중을 늘렸다. 평균 숏 길이가 이전 작품보다 길어졌으며 인물을 화면 중앙에 대칭으로 배치하는 구도가 두드러진다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "감독 A는 대학에서 철학을 전공한 뒤 광고 대행사에서 5년간 근무했다. 영화계 입문은 단편 영화 공모전 수상을 계기로 이루어졌다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_film_2",
+      "group": "dilution/40%",
+      "scenario": "film",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 5,
+      "gold_total": 3,
+      "irrelevant_total": 2,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기작은 인물 중심 서사와 느린 호흡, 긴 컷을 사용했다",
+        "최근작은 편집 속도가 빨라지고 평균 숏 길이가 짧아졌다",
+        "색채가 저채도 청색에서 주황-청록 보색 대비로 바뀌었다"
+      ],
+      "irrelevant_topics": [
+        "감독 B의 최근작은 편집 속도를 오히려 늦추고 롱테이크 비중을 늘렸다",
+        "감독 A는 대학에서 철학을 전공한 뒤 광고 대행사에서 5년간 근무했다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "normalized_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "감독 A"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "연출 스타일",
+          "편집",
+          "서사"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+        "candidate_k": 50,
+        "final_k": 7,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "감독 A의 초기작은 인물 중심 서사와 느린 호흡을 특징으로 한다. 평론가들은 특히 장면 전환을 최소화하고 한 컷을 길게 유지하는 방식이 인물의 내면을 드러내는 데 기여했다고 평가했다. 이러한 연출은 데뷔작부터 세 번째 작품까지 일관되게 나타난다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "최근작에서는 편집 속도가 눈에 띄게 빨라졌다. 평균 숏 길이가 이전 작품의 절반 수준으로 줄었으며, 교차 편집을 적극적으로 활용해 긴장감을 조성한다. 이는 장르적 관습을 의도적으로 끌어들인 결과로 해석된다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "색채 설계에서도 변화가 확인된다. 초기작이 저채도의 청색 계열을 주조색으로 삼았다면, 최근작은 주황과 청록의 보색 대비를 전면에 내세운다. 이 변화는 촬영감독 교체 시점과 일치한다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "감독 B의 최근작은 편집 속도를 오히려 늦추고 롱테이크 비중을 늘렸다. 평균 숏 길이가 이전 작품보다 길어졌으며 인물을 화면 중앙에 대칭으로 배치하는 구도가 두드러진다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "감독 A는 대학에서 철학을 전공한 뒤 광고 대행사에서 5년간 근무했다. 영화계 입문은 단편 영화 공모전 수상을 계기로 이루어졌다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_5",
+            "modality": "text",
+            "score": 0.6,
+            "content": "감독 A가 연출한 자동차 광고는 3초 단위의 빠른 컷과 강한 보색 대비를 사용한다. 광고 특성상 짧은 시간에 시선을 붙잡아야 하기 때문이다.",
+            "metadata": {
+              "rank": 6,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_6",
+            "modality": "text",
+            "score": 0.53,
+            "content": "감독 C의 색채 설계는 데뷔작부터 일관되게 주황과 청록의 보색 대비를 유지해 왔다. 촬영감독을 교체한 적이 없다는 점이 원인으로 지목된다.",
+            "metadata": {
+              "rank": 7,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_film_4",
+      "group": "dilution/57%",
+      "scenario": "film",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 7,
+      "gold_total": 3,
+      "irrelevant_total": 4,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기작은 인물 중심 서사와 느린 호흡, 긴 컷을 사용했다",
+        "최근작은 편집 속도가 빨라지고 평균 숏 길이가 짧아졌다",
+        "색채가 저채도 청색에서 주황-청록 보색 대비로 바뀌었다"
+      ],
+      "irrelevant_topics": [
+        "감독 B의 최근작은 편집 속도를 오히려 늦추고 롱테이크 비중을 늘렸다",
+        "감독 A는 대학에서 철학을 전공한 뒤 광고 대행사에서 5년간 근무했다",
+        "감독 A가 연출한 자동차 광고는 3초 단위의 빠른 컷과 강한 보색 대비를 사용한다",
+        "감독 C의 색채 설계는 데뷔작부터 일관되게 주황과 청록의 보색 대비를 유지해 왔다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "normalized_query": "감독 A의 초기작과 최근작의 연출 스타일 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "감독 A"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "연출 스타일",
+          "편집",
+          "서사"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "영화 감독 A의 연출 스타일 변화 연출 스타일 편집",
+        "candidate_k": 50,
+        "final_k": 9,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "감독 A의 초기작은 인물 중심 서사와 느린 호흡을 특징으로 한다. 평론가들은 특히 장면 전환을 최소화하고 한 컷을 길게 유지하는 방식이 인물의 내면을 드러내는 데 기여했다고 평가했다. 이러한 연출은 데뷔작부터 세 번째 작품까지 일관되게 나타난다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "최근작에서는 편집 속도가 눈에 띄게 빨라졌다. 평균 숏 길이가 이전 작품의 절반 수준으로 줄었으며, 교차 편집을 적극적으로 활용해 긴장감을 조성한다. 이는 장르적 관습을 의도적으로 끌어들인 결과로 해석된다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "색채 설계에서도 변화가 확인된다. 초기작이 저채도의 청색 계열을 주조색으로 삼았다면, 최근작은 주황과 청록의 보색 대비를 전면에 내세운다. 이 변화는 촬영감독 교체 시점과 일치한다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "감독 B의 최근작은 편집 속도를 오히려 늦추고 롱테이크 비중을 늘렸다. 평균 숏 길이가 이전 작품보다 길어졌으며 인물을 화면 중앙에 대칭으로 배치하는 구도가 두드러진다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "감독 A는 대학에서 철학을 전공한 뒤 광고 대행사에서 5년간 근무했다. 영화계 입문은 단편 영화 공모전 수상을 계기로 이루어졌다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_5",
+            "modality": "text",
+            "score": 0.6,
+            "content": "감독 A가 연출한 자동차 광고는 3초 단위의 빠른 컷과 강한 보색 대비를 사용한다. 광고 특성상 짧은 시간에 시선을 붙잡아야 하기 때문이다.",
+            "metadata": {
+              "rank": 6,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_6",
+            "modality": "text",
+            "score": 0.53,
+            "content": "감독 C의 색채 설계는 데뷔작부터 일관되게 주황과 청록의 보색 대비를 유지해 왔다. 촬영감독을 교체한 적이 없다는 점이 원인으로 지목된다.",
+            "metadata": {
+              "rank": 7,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_7",
+            "modality": "text",
+            "score": 0.46,
+            "content": "감독 A의 최근작은 제작비가 이전작의 세 배로 늘었고 해외 로케이션 촬영 비중이 커졌다. 배급사도 대형사로 바뀌었다.",
+            "metadata": {
+              "rank": 8,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_8",
+            "modality": "text",
+            "score": 0.39,
+            "content": "감독 A가 학생 시절 만든 습작 단편들은 편집 실험이 두드러진다. 다만 본인은 이 작품들을 필모그래피에서 제외하고 있다.",
+            "metadata": {
+              "rank": 9,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_film_6",
+      "group": "dilution/66%",
+      "scenario": "film",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 9,
+      "gold_total": 3,
+      "irrelevant_total": 6,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기작은 인물 중심 서사와 느린 호흡, 긴 컷을 사용했다",
+        "최근작은 편집 속도가 빨라지고 평균 숏 길이가 짧아졌다",
+        "색채가 저채도 청색에서 주황-청록 보색 대비로 바뀌었다"
+      ],
+      "irrelevant_topics": [
+        "감독 B의 최근작은 편집 속도를 오히려 늦추고 롱테이크 비중을 늘렸다",
+        "감독 A는 대학에서 철학을 전공한 뒤 광고 대행사에서 5년간 근무했다",
+        "감독 A가 연출한 자동차 광고는 3초 단위의 빠른 컷과 강한 보색 대비를 사용한다",
+        "감독 C의 색채 설계는 데뷔작부터 일관되게 주황과 청록의 보색 대비를 유지해 왔다",
+        "감독 A의 최근작은 제작비가 이전작의 세 배로 늘었고 해외 로케이션 촬영 비중이 커졌다",
+        "감독 A가 학생 시절 만든 습작 단편들은 편집 실험이 두드러진다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "normalized_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "넙치"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "행동 특성",
+          "기관계",
+          "양식 환경"
+        ]
+      },
+      "answer_constraints": [
+        "항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+        "candidate_k": 50,
+        "final_k": 3,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "넙치는 저서성 어류로 모래 바닥에 몸을 붙이고 정지해 있는 시간이 길다. 포식자를 피하기 위해 체색을 주변 모래와 유사하게 조절하는 보호색 기제를 가지며, 이 상태에서는 눈만 노출한 채 장시간 움직이지 않는다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "양식 넙치는 사육 밀도가 높아질수록 개체 간 접촉이 늘어 스트레스 지표가 상승한다. 코르티솔 농도가 높아지고 성장률이 떨어지는 것이 반복적으로 관찰되어, 밀도 관리가 생산성의 핵심 변수로 다뤄진다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "어류의 순환계와 호흡계는 아가미에서 밀접하게 연결되어 기체 교환을 수행한다. 아가미 모세혈관을 흐르는 혈액과 물이 반대 방향으로 흐르는 역류 구조 덕분에 산소 흡수 효율이 높다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_fish_0",
+      "group": "dilution/0%",
+      "scenario": "fish",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 3,
+      "gold_total": 3,
+      "irrelevant_total": 0,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "넙치는 모래 바닥에 붙어 장시간 정지하며 보호색을 쓴다",
+        "양식 밀도가 높아지면 스트레스 지표가 오르고 성장률이 떨어진다",
+        "아가미에서 순환계와 호흡계가 역류 구조로 기체를 교환한다"
+      ],
+      "irrelevant_topics": [],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "normalized_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "넙치"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "행동 특성",
+          "기관계",
+          "양식 환경"
+        ]
+      },
+      "answer_constraints": [
+        "항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+        "candidate_k": 50,
+        "final_k": 5,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "넙치는 저서성 어류로 모래 바닥에 몸을 붙이고 정지해 있는 시간이 길다. 포식자를 피하기 위해 체색을 주변 모래와 유사하게 조절하는 보호색 기제를 가지며, 이 상태에서는 눈만 노출한 채 장시간 움직이지 않는다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "양식 넙치는 사육 밀도가 높아질수록 개체 간 접촉이 늘어 스트레스 지표가 상승한다. 코르티솔 농도가 높아지고 성장률이 떨어지는 것이 반복적으로 관찰되어, 밀도 관리가 생산성의 핵심 변수로 다뤄진다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "어류의 순환계와 호흡계는 아가미에서 밀접하게 연결되어 기체 교환을 수행한다. 아가미 모세혈관을 흐르는 혈액과 물이 반대 방향으로 흐르는 역류 구조 덕분에 산소 흡수 효율이 높다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "조피볼락은 넙치와 달리 중층을 유영하며 바닥에 붙어 있는 시간이 짧다. 체색 변화 능력도 제한적이어서 은신보다는 암초 구조물에 의존한다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "넙치 양식장의 사료 단가는 최근 3년간 꾸준히 상승했다. 어분 원료의 국제 시세 변동과 환율이 주요 원인으로 지목된다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_fish_2",
+      "group": "dilution/40%",
+      "scenario": "fish",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 5,
+      "gold_total": 3,
+      "irrelevant_total": 2,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "넙치는 모래 바닥에 붙어 장시간 정지하며 보호색을 쓴다",
+        "양식 밀도가 높아지면 스트레스 지표가 오르고 성장률이 떨어진다",
+        "아가미에서 순환계와 호흡계가 역류 구조로 기체를 교환한다"
+      ],
+      "irrelevant_topics": [
+        "조피볼락은 넙치와 달리 중층을 유영하며 바닥에 붙어 있는 시간이 짧다",
+        "넙치 양식장의 사료 단가는 최근 3년간 꾸준히 상승했다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "normalized_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "넙치"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "행동 특성",
+          "기관계",
+          "양식 환경"
+        ]
+      },
+      "answer_constraints": [
+        "항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+        "candidate_k": 50,
+        "final_k": 7,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "넙치는 저서성 어류로 모래 바닥에 몸을 붙이고 정지해 있는 시간이 길다. 포식자를 피하기 위해 체색을 주변 모래와 유사하게 조절하는 보호색 기제를 가지며, 이 상태에서는 눈만 노출한 채 장시간 움직이지 않는다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "양식 넙치는 사육 밀도가 높아질수록 개체 간 접촉이 늘어 스트레스 지표가 상승한다. 코르티솔 농도가 높아지고 성장률이 떨어지는 것이 반복적으로 관찰되어, 밀도 관리가 생산성의 핵심 변수로 다뤄진다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "어류의 순환계와 호흡계는 아가미에서 밀접하게 연결되어 기체 교환을 수행한다. 아가미 모세혈관을 흐르는 혈액과 물이 반대 방향으로 흐르는 역류 구조 덕분에 산소 흡수 효율이 높다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "조피볼락은 넙치와 달리 중층을 유영하며 바닥에 붙어 있는 시간이 짧다. 체색 변화 능력도 제한적이어서 은신보다는 암초 구조물에 의존한다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "넙치 양식장의 사료 단가는 최근 3년간 꾸준히 상승했다. 어분 원료의 국제 시세 변동과 환율이 주요 원인으로 지목된다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_5",
+            "modality": "text",
+            "score": 0.6,
+            "content": "자연산 넙치와 양식 넙치는 근육 지방 함량과 식감에서 차이를 보인다. 소비자 선호도 조사에서 자연산의 가격 프리미엄이 확인되었다.",
+            "metadata": {
+              "rank": 6,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_6",
+            "modality": "text",
+            "score": 0.53,
+            "content": "연어의 순환계는 회유 과정에서 높은 산소 요구량을 감당하도록 심장 근육량이 크다. 담수와 해수를 오가는 삼투압 조절 부담도 함께 진다.",
+            "metadata": {
+              "rank": 7,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_fish_4",
+      "group": "dilution/57%",
+      "scenario": "fish",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 7,
+      "gold_total": 3,
+      "irrelevant_total": 4,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "넙치는 모래 바닥에 붙어 장시간 정지하며 보호색을 쓴다",
+        "양식 밀도가 높아지면 스트레스 지표가 오르고 성장률이 떨어진다",
+        "아가미에서 순환계와 호흡계가 역류 구조로 기체를 교환한다"
+      ],
+      "irrelevant_topics": [
+        "조피볼락은 넙치와 달리 중층을 유영하며 바닥에 붙어 있는 시간이 짧다",
+        "넙치 양식장의 사료 단가는 최근 3년간 꾸준히 상승했다",
+        "자연산 넙치와 양식 넙치는 근육 지방 함량과 식감에서 차이를 보인다",
+        "연어의 순환계는 회유 과정에서 높은 산소 요구량을 감당하도록 심장 근육량이 크다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "normalized_query": "넙치의 행동 특성과 어류 기관계의 작동 방식을 설명해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "넙치"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "행동 특성",
+          "기관계",
+          "양식 환경"
+        ]
+      },
+      "answer_constraints": [
+        "항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "넙치의 행동 특성과 어류 기관계 행동 특성 기관계",
+        "candidate_k": 50,
+        "final_k": 9,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "넙치는 저서성 어류로 모래 바닥에 몸을 붙이고 정지해 있는 시간이 길다. 포식자를 피하기 위해 체색을 주변 모래와 유사하게 조절하는 보호색 기제를 가지며, 이 상태에서는 눈만 노출한 채 장시간 움직이지 않는다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "양식 넙치는 사육 밀도가 높아질수록 개체 간 접촉이 늘어 스트레스 지표가 상승한다. 코르티솔 농도가 높아지고 성장률이 떨어지는 것이 반복적으로 관찰되어, 밀도 관리가 생산성의 핵심 변수로 다뤄진다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "어류의 순환계와 호흡계는 아가미에서 밀접하게 연결되어 기체 교환을 수행한다. 아가미 모세혈관을 흐르는 혈액과 물이 반대 방향으로 흐르는 역류 구조 덕분에 산소 흡수 효율이 높다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "조피볼락은 넙치와 달리 중층을 유영하며 바닥에 붙어 있는 시간이 짧다. 체색 변화 능력도 제한적이어서 은신보다는 암초 구조물에 의존한다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "넙치 양식장의 사료 단가는 최근 3년간 꾸준히 상승했다. 어분 원료의 국제 시세 변동과 환율이 주요 원인으로 지목된다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_5",
+            "modality": "text",
+            "score": 0.6,
+            "content": "자연산 넙치와 양식 넙치는 근육 지방 함량과 식감에서 차이를 보인다. 소비자 선호도 조사에서 자연산의 가격 프리미엄이 확인되었다.",
+            "metadata": {
+              "rank": 6,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_6",
+            "modality": "text",
+            "score": 0.53,
+            "content": "연어의 순환계는 회유 과정에서 높은 산소 요구량을 감당하도록 심장 근육량이 크다. 담수와 해수를 오가는 삼투압 조절 부담도 함께 진다.",
+            "metadata": {
+              "rank": 7,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_7",
+            "modality": "text",
+            "score": 0.46,
+            "content": "넙치 종자 생산 시설은 부화 후 초기 먹이로 로티퍼와 알테미아를 단계적으로 공급한다. 공급 전환 시점이 생존율을 좌우한다.",
+            "metadata": {
+              "rank": 8,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_8",
+            "modality": "text",
+            "score": 0.39,
+            "content": "넙치 가공품 수출 물량은 검역 절차 변경 이후 통관 소요일이 늘었다. 냉동 유통 비용이 함께 증가했다.",
+            "metadata": {
+              "rank": 9,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_fish_6",
+      "group": "dilution/66%",
+      "scenario": "fish",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 9,
+      "gold_total": 3,
+      "irrelevant_total": 6,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "넙치는 모래 바닥에 붙어 장시간 정지하며 보호색을 쓴다",
+        "양식 밀도가 높아지면 스트레스 지표가 오르고 성장률이 떨어진다",
+        "아가미에서 순환계와 호흡계가 역류 구조로 기체를 교환한다"
+      ],
+      "irrelevant_topics": [
+        "조피볼락은 넙치와 달리 중층을 유영하며 바닥에 붙어 있는 시간이 짧다",
+        "넙치 양식장의 사료 단가는 최근 3년간 꾸준히 상승했다",
+        "자연산 넙치와 양식 넙치는 근육 지방 함량과 식감에서 차이를 보인다",
+        "연어의 순환계는 회유 과정에서 높은 산소 요구량을 감당하도록 심장 근육량이 크다",
+        "넙치 종자 생산 시설은 부화 후 초기 먹이로 로티퍼와 알테미아를 단계적으로 공급한다",
+        "넙치 가공품 수출 물량은 검역 절차 변경 이후 통관 소요일이 늘었다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "normalized_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "배터리 팩 X"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "냉각 방식",
+          "온도 편차",
+          "수명"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+        "candidate_k": 50,
+        "final_k": 3,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "배터리 팩 X의 초기 모델은 공랭식 열관리를 채택했다. 팩 하부에 송풍 덕트를 두고 셀 사이로 공기를 통과시키는 구조이며, 구조가 단순하고 무게가 가볍다는 이점이 있었다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "개선 모델에서는 수랭식으로 전환되었다. 셀 사이에 냉각 플레이트를 삽입해 냉매를 순환시키는 방식으로, 급속 충전 시 셀 간 온도 편차가 크게 줄었다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "온도 편차 축소는 수명에 직접 영향을 준다. 초기 모델은 500회 충방전 후 용량 유지율이 약 82%였으나 개선 모델은 같은 조건에서 91%를 기록했다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_battery_0",
+      "group": "dilution/0%",
+      "scenario": "battery",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 3,
+      "gold_total": 3,
+      "irrelevant_total": 0,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기 모델은 공랭식, 개선 모델은 수랭식을 쓴다",
+        "수랭식 전환으로 셀 간 온도 편차가 줄었다",
+        "500회 충방전 후 용량 유지율이 82%에서 91%로 올랐다"
+      ],
+      "irrelevant_topics": [],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "normalized_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "배터리 팩 X"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "냉각 방식",
+          "온도 편차",
+          "수명"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+        "candidate_k": 50,
+        "final_k": 5,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "배터리 팩 X의 초기 모델은 공랭식 열관리를 채택했다. 팩 하부에 송풍 덕트를 두고 셀 사이로 공기를 통과시키는 구조이며, 구조가 단순하고 무게가 가볍다는 이점이 있었다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "개선 모델에서는 수랭식으로 전환되었다. 셀 사이에 냉각 플레이트를 삽입해 냉매를 순환시키는 방식으로, 급속 충전 시 셀 간 온도 편차가 크게 줄었다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "온도 편차 축소는 수명에 직접 영향을 준다. 초기 모델은 500회 충방전 후 용량 유지율이 약 82%였으나 개선 모델은 같은 조건에서 91%를 기록했다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "배터리 팩 Y는 초기부터 수랭식을 적용해 왔으며 냉각 플레이트를 셀 하부에 배치한다. 셀 간 온도 편차 관리에서 업계 기준으로 자주 인용된다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "배터리 팩 X의 모듈 케이스는 알루미늄 압출재에서 강판 프레스 방식으로 변경되었다. 원가 절감과 생산 속도 향상이 목적이었다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_battery_2",
+      "group": "dilution/40%",
+      "scenario": "battery",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 5,
+      "gold_total": 3,
+      "irrelevant_total": 2,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기 모델은 공랭식, 개선 모델은 수랭식을 쓴다",
+        "수랭식 전환으로 셀 간 온도 편차가 줄었다",
+        "500회 충방전 후 용량 유지율이 82%에서 91%로 올랐다"
+      ],
+      "irrelevant_topics": [
+        "배터리 팩 Y는 초기부터 수랭식을 적용해 왔으며 냉각 플레이트를 셀 하부에 배치한다",
+        "배터리 팩 X의 모듈 케이스는 알루미늄 압출재에서 강판 프레스 방식으로 변경되었다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "normalized_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "배터리 팩 X"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "냉각 방식",
+          "온도 편차",
+          "수명"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+        "candidate_k": 50,
+        "final_k": 7,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "배터리 팩 X의 초기 모델은 공랭식 열관리를 채택했다. 팩 하부에 송풍 덕트를 두고 셀 사이로 공기를 통과시키는 구조이며, 구조가 단순하고 무게가 가볍다는 이점이 있었다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "개선 모델에서는 수랭식으로 전환되었다. 셀 사이에 냉각 플레이트를 삽입해 냉매를 순환시키는 방식으로, 급속 충전 시 셀 간 온도 편차가 크게 줄었다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "온도 편차 축소는 수명에 직접 영향을 준다. 초기 모델은 500회 충방전 후 용량 유지율이 약 82%였으나 개선 모델은 같은 조건에서 91%를 기록했다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "배터리 팩 Y는 초기부터 수랭식을 적용해 왔으며 냉각 플레이트를 셀 하부에 배치한다. 셀 간 온도 편차 관리에서 업계 기준으로 자주 인용된다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "배터리 팩 X의 모듈 케이스는 알루미늄 압출재에서 강판 프레스 방식으로 변경되었다. 원가 절감과 생산 속도 향상이 목적이었다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_5",
+            "modality": "text",
+            "score": 0.6,
+            "content": "배터리 팩 X를 탑재한 차량의 실내 공조 시스템은 히트펌프로 교체되어 겨울철 주행 거리 감소 폭이 줄었다.",
+            "metadata": {
+              "rank": 6,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_6",
+            "modality": "text",
+            "score": 0.53,
+            "content": "에너지저장장치용 팩 X-E 는 차량용과 셀은 같지만 열관리 요구가 달라 공랭식을 유지하고 있다. 정치형이라 충방전 속도가 낮기 때문이다.",
+            "metadata": {
+              "rank": 7,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_battery_4",
+      "group": "dilution/57%",
+      "scenario": "battery",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 7,
+      "gold_total": 3,
+      "irrelevant_total": 4,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기 모델은 공랭식, 개선 모델은 수랭식을 쓴다",
+        "수랭식 전환으로 셀 간 온도 편차가 줄었다",
+        "500회 충방전 후 용량 유지율이 82%에서 91%로 올랐다"
+      ],
+      "irrelevant_topics": [
+        "배터리 팩 Y는 초기부터 수랭식을 적용해 왔으며 냉각 플레이트를 셀 하부에 배치한다",
+        "배터리 팩 X의 모듈 케이스는 알루미늄 압출재에서 강판 프레스 방식으로 변경되었다",
+        "배터리 팩 X를 탑재한 차량의 실내 공조 시스템은 히트펌프로 교체되어 겨울철 주행 거리 감소 폭이 줄었다",
+        "에너지저장장치용 팩 X-E 는 차량용과 셀은 같지만 열관리 요구가 달라 공랭식을 유지하고 있다"
+      ],
+      "has_conflict": false
+    }
+  },
+  {
+    "schema_version": "3.0",
+    "original_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "normalized_query": "배터리 팩 X의 초기 모델과 개선 모델의 열관리 방식 차이를 비교해줘.",
+    "query_context": {
+      "input_context": "",
+      "identified_entities": [
+        "배터리 팩 X"
+      ],
+      "required_operations": [
+        "compare",
+        "describe"
+      ],
+      "constraints": [],
+      "modality_focus": {
+        "text": [
+          "냉각 방식",
+          "온도 편차",
+          "수명"
+        ]
+      },
+      "answer_constraints": [
+        "차이를 항목별로 정리할 것"
+      ],
+      "retrieval_action": "retrieve",
+      "sub_queries": [
+        {
+          "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+          "modality": "text",
+          "priority": "high"
+        }
+      ]
+    },
+    "complexity": {
+      "level": "medium",
+      "score": 0.55,
+      "retrieval_demand": {
+        "text": "medium"
+      },
+      "features": {},
+      "reasons": []
+    },
+    "retrieval_results": {
+      "text": {
+        "modality": "text",
+        "query": "전기차 배터리 팩의 열관리 방식 냉각 방식 온도 편차",
+        "candidate_k": 50,
+        "final_k": 9,
+        "use_reranker": false,
+        "uncertainty": {
+          "top1_score": 0.95,
+          "top1_top2_gap": 0.05,
+          "score_variance": 0.01,
+          "shannon_entropy": 1.0,
+          "normalized_entropy": 0.9,
+          "level": "medium"
+        },
+        "evidence": [
+          {
+            "evidence_id": "text_0",
+            "modality": "text",
+            "score": 0.95,
+            "content": "배터리 팩 X의 초기 모델은 공랭식 열관리를 채택했다. 팩 하부에 송풍 덕트를 두고 셀 사이로 공기를 통과시키는 구조이며, 구조가 단순하고 무게가 가볍다는 이점이 있었다.",
+            "metadata": {
+              "rank": 1,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_1",
+            "modality": "text",
+            "score": 0.88,
+            "content": "개선 모델에서는 수랭식으로 전환되었다. 셀 사이에 냉각 플레이트를 삽입해 냉매를 순환시키는 방식으로, 급속 충전 시 셀 간 온도 편차가 크게 줄었다.",
+            "metadata": {
+              "rank": 2,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_2",
+            "modality": "text",
+            "score": 0.81,
+            "content": "온도 편차 축소는 수명에 직접 영향을 준다. 초기 모델은 500회 충방전 후 용량 유지율이 약 82%였으나 개선 모델은 같은 조건에서 91%를 기록했다.",
+            "metadata": {
+              "rank": 3,
+              "_role": "gold"
+            }
+          },
+          {
+            "evidence_id": "text_3",
+            "modality": "text",
+            "score": 0.74,
+            "content": "배터리 팩 Y는 초기부터 수랭식을 적용해 왔으며 냉각 플레이트를 셀 하부에 배치한다. 셀 간 온도 편차 관리에서 업계 기준으로 자주 인용된다.",
+            "metadata": {
+              "rank": 4,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_4",
+            "modality": "text",
+            "score": 0.67,
+            "content": "배터리 팩 X의 모듈 케이스는 알루미늄 압출재에서 강판 프레스 방식으로 변경되었다. 원가 절감과 생산 속도 향상이 목적이었다.",
+            "metadata": {
+              "rank": 5,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_5",
+            "modality": "text",
+            "score": 0.6,
+            "content": "배터리 팩 X를 탑재한 차량의 실내 공조 시스템은 히트펌프로 교체되어 겨울철 주행 거리 감소 폭이 줄었다.",
+            "metadata": {
+              "rank": 6,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_6",
+            "modality": "text",
+            "score": 0.53,
+            "content": "에너지저장장치용 팩 X-E 는 차량용과 셀은 같지만 열관리 요구가 달라 공랭식을 유지하고 있다. 정치형이라 충방전 속도가 낮기 때문이다.",
+            "metadata": {
+              "rank": 7,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_7",
+            "modality": "text",
+            "score": 0.46,
+            "content": "배터리 팩 X의 조립 라인은 자동화율이 높아졌고 검사 공정에 엑스레이 설비가 추가되었다.",
+            "metadata": {
+              "rank": 8,
+              "_role": "irrelevant"
+            }
+          },
+          {
+            "evidence_id": "text_8",
+            "modality": "text",
+            "score": 0.39,
+            "content": "배터리 팩 X의 재활용 공정은 습식 제련 방식을 채택해 니켈과 코발트 회수율을 높였다.",
+            "metadata": {
+              "rank": 9,
+              "_role": "irrelevant"
+            }
+          }
+        ]
+      }
+    },
+    "_meta": {
+      "packet_id": "dil_battery_6",
+      "group": "dilution/66%",
+      "scenario": "battery",
+      "level": "medium",
+      "modalities": [
+        "text"
+      ],
+      "evidence_total": 9,
+      "gold_total": 3,
+      "irrelevant_total": 6,
+      "duplicate_total": 0,
+      "contradiction_total": 0,
+      "hard_negatives": true,
+      "use_real_assets": false,
+      "key_points": [
+        "초기 모델은 공랭식, 개선 모델은 수랭식을 쓴다",
+        "수랭식 전환으로 셀 간 온도 편차가 줄었다",
+        "500회 충방전 후 용량 유지율이 82%에서 91%로 올랐다"
+      ],
+      "irrelevant_topics": [
+        "배터리 팩 Y는 초기부터 수랭식을 적용해 왔으며 냉각 플레이트를 셀 하부에 배치한다",
+        "배터리 팩 X의 모듈 케이스는 알루미늄 압출재에서 강판 프레스 방식으로 변경되었다",
+        "배터리 팩 X를 탑재한 차량의 실내 공조 시스템은 히트펌프로 교체되어 겨울철 주행 거리 감소 폭이 줄었다",
+        "에너지저장장치용 팩 X-E 는 차량용과 셀은 같지만 열관리 요구가 달라 공랭식을 유지하고 있다",
+        "배터리 팩 X의 조립 라인은 자동화율이 높아졌고 검사 공정에 엑스레이 설비가 추가되었다",
+        "배터리 팩 X의 재활용 공정은 습식 제련 방식을 채택해 니켈과 코발트 회수율을 높였다"
+      ],
+      "has_conflict": false
+    }
+  }
+]
