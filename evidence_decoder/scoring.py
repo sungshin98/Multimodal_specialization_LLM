@@ -40,6 +40,12 @@ from .schemas import DecoderOutput, Modality
 
 _CARD_ID_RE = re.compile(r"\b(?:text|image|video|audio|table)_card_\d+\b")
 
+
+def _norm(text: str) -> str:
+    """심판이 돌려준 요지 문자열을 원본과 대조하기 위한 정규화."""
+    return re.sub(r"\s+", " ", text).strip().lower()
+
+
 GOLD = "gold"
 IRRELEVANT = "irrelevant"
 DUPLICATE = "duplicate"
@@ -114,19 +120,25 @@ def score_rules(output: DecoderOutput, packet: Mapping[str, Any]) -> QualityScor
     all_cards = [card for result in output.modality_results for card in result.cards]
     carded_sources = {card.source_evidence_id for card in all_cards}
 
+    # 근거 카드를 만들지 않는 구성(외부 베이스라인 등)에서는 1층 지표가
+    # 정의되지 않는다. 빈 카드 집합을 그대로 계산하면 gold채택 0.00,
+    # 무관거부 1.00 이라는 무의미한 값이 나와 비교를 왜곡한다.
+    card_based = bool(output.modality_results)
+
     # ---- 1층 -------------------------------------------------
     gold_ids = [eid for eid, role in roles.items() if role == GOLD]
     irrelevant_ids = [eid for eid, role in roles.items() if role == IRRELEVANT]
 
-    score.gold_recall = _ratio(
-        sum(1 for eid in gold_ids if eid in carded_sources), len(gold_ids)
-    )
-    score.irrelevant_rejection = _ratio(
-        sum(1 for eid in irrelevant_ids if eid not in carded_sources), len(irrelevant_ids)
-    )
-    score.source_hallucination = _ratio(
-        sum(1 for card in all_cards if card.metadata.get("unmapped_source")), len(all_cards)
-    )
+    if card_based:
+        score.gold_recall = _ratio(
+            sum(1 for eid in gold_ids if eid in carded_sources), len(gold_ids)
+        )
+        score.irrelevant_rejection = _ratio(
+            sum(1 for eid in irrelevant_ids if eid not in carded_sources), len(irrelevant_ids)
+        )
+        score.source_hallucination = _ratio(
+            sum(1 for card in all_cards if card.metadata.get("unmapped_source")), len(all_cards)
+        )
 
     # ---- 2층 -------------------------------------------------
     integrated = output.integrated
@@ -285,7 +297,29 @@ def score_answer_with_judge(
     raw = judge.generate_json(JUDGE_SYSTEM, "\n\n".join(lines), JUDGE_SCHEMA)
 
     entries = [e for e in (raw.get("covered_key_points") or []) if isinstance(e, Mapping)]
-    covered = sum(1 for e in entries if e.get("covered"))
+    # 심판이 요지를 쪼개거나 덧붙여 돌려주면 항목 수가 입력보다 많아진다. 그대로
+    # 세면 비율이 1 을 넘으므로(HotpotQA 에서 1.08·1.17 관측), 돌려받은 항목을
+    # 주어진 요지에 대응시켜 요지 단위로 한 번씩만 센다.
+    covered_points = set()
+    unmatched = []
+    normalized = {_norm(kp): index for index, kp in enumerate(key_points)}
+    for entry in entries:
+        if not entry.get("covered"):
+            continue
+        index = normalized.get(_norm(str(entry.get("key_point", ""))))
+        if index is None:
+            unmatched.append(entry)
+        else:
+            covered_points.add(index)
+    # 심판이 요지를 재서술한 경우. 순서는 보존되므로 남은 자리에 차례로 채운다.
+    for index in range(len(key_points)):
+        if not unmatched:
+            break
+        if index not in covered_points:
+            covered_points.add(index)
+            unmatched.pop(0)
+
+    covered = len(covered_points)
     return {
         "key_point_coverage": round(covered / len(key_points), 4) if key_points else None,
         "contamination": len(raw.get("contaminated_statements") or []),
