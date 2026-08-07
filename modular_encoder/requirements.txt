@@ -1,0 +1,13 @@
+torch
+transformers
+sentence-transformers
+numpy
+Pillow
+opencv-python
+python-docx
+pypdf
+psutil
+
+# Only required for legacy audio-development scripts:
+soundfile
+scipy
