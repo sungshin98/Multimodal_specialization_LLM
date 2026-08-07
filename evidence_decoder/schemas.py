@@ -188,10 +188,14 @@ class DecoderTrace:
     # 실행 중 백엔드가 폴백으로 내려갔는지. 비어 있지 않으면 그 실행의
     # 지연/품질 수치는 정상 경로의 값이 아니므로 실험에서 제외해야 한다.
     degraded_backends: List[str] = field(default_factory=list)
+    # 모달리티 디코더가 호출 실패로 카드를 만들지 못한 경우. 폴백과 달리
+    # 조용히 빈 결과가 되므로 별도로 기록하지 않으면 실패한 실행이 정상처럼
+    # 집계된다(실측에서 40% 실패가 "오류 0"으로 보고된 적이 있다).
+    failed_modalities: List[str] = field(default_factory=list)
 
     @property
     def is_valid_sample(self) -> bool:
-        return not self.degraded_backends
+        return not self.degraded_backends and not self.failed_modalities
 
 
 @dataclass

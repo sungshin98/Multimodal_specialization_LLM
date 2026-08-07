@@ -3,6 +3,8 @@
     python -m evidence_decoder.bench --repeat 3
 
 비교군
+  plain-rag   : 외부 베이스라인. 검색 결과를 그대로 프롬프트에 이어 붙여
+                단일 호출로 답변한다. 근거 카드·인용·충돌 처리가 없다.
   full        : 모달 디코더 + 통합 계층 전부 사용 (제안 구조)
   no-integ    : 통합 계층 제거 (카드 단순 이어붙이기)
   bypass      : 저복잡도 바이패스 허용
@@ -31,7 +33,8 @@ from .pipeline import MultiLayerDecoderPipeline, PipelineConfig
 from .schemas import DecoderOutput, Level, Modality
 from .scoring import QualityScore, print_scores, score_output
 
-ARMS = ("raw", "no-integ", "bypass", "full")
+# plain-rag 는 파이프라인 밖의 외부 베이스라인이다(baselines.py).
+ARMS = ("plain-rag", "raw", "no-integ", "bypass", "full")
 
 
 @dataclass
@@ -48,9 +51,12 @@ class ArmResult:
     citations: List[int] = field(default_factory=list)
     errors: List[str] = field(default_factory=list)
     degraded: List[str] = field(default_factory=list)
+    failed_runs: List[str] = field(default_factory=list)
 
     def record(self, output: DecoderOutput) -> None:
         trace = output.trace
+        if trace.failed_modalities:
+            self.failed_runs.append("; ".join(trace.failed_modalities))
         if trace.degraded_backends:
             # 폴백으로 내려간 실행은 정상 경로의 수치가 아니다.
             self.degraded.append("; ".join(trace.degraded_backends))
@@ -82,13 +88,18 @@ class ArmResult:
             "citations_median": med(self.citations),
             "errors": len(self.errors),
             "degraded": len(self.degraded),
+            "실패": len(self.failed_runs),
         }
 
 
-def build_arm(arm: str, clients: Dict[str, Any], asset_root: Optional[str]) -> MultiLayerDecoderPipeline:
+def build_arm(arm: str, clients: Dict[str, Any], asset_root: Optional[str]):
     from .assets import AssetLoader
+    from .baselines import PlainRAGPipeline
 
     text_client = clients["text"]
+    if arm == "plain-rag":
+        return PlainRAGPipeline(client=text_client)
+
     loader = AssetLoader(asset_root=asset_root)
     decoders = build_modality_decoders(
         text_client, clients["vision"], loader,
@@ -138,10 +149,14 @@ def run_bench(
         except Exception as error:  # noqa: BLE001
             print(f"  (워밍업 실패, 무시: {error})")
 
+    # 구성을 바깥 루프에 두면 마지막 구성이 누적 부하와 속도 제한을 떠안는다.
+    # 실측에서 마지막 구성의 40%가 호출 실패한 적이 있으므로, 패킷을 바깥에
+    # 두고 구성을 번갈아 실행하여 시간대 효과를 상쇄한다.
+    pipelines = {arm: build_arm(arm, clients, asset_root) for arm in arms}
     results: Dict[str, ArmResult] = {}
-    for arm in arms:
-        pipeline = build_arm(arm, clients, asset_root)
-        for index, packet in enumerate(packets):
+    for index, packet in enumerate(packets):
+        for arm in arms:
+            pipeline = pipelines[arm]
             meta = packet.get("_meta") or {}
             label = meta.get("group") if group_by_meta else None
             key = f"{arm}@{label}" if label else arm
@@ -184,6 +199,7 @@ def print_table(results: Dict[str, ArmResult]) -> None:
         ("citations_median", "인용", 6),
         ("errors", "오류", 5),
         ("degraded", "오염", 5),
+        ("실패", "실패", 5),
     ]
     print("\n" + "=" * 100)
     print("".join(title.ljust(width) for _, title, width in headers))
@@ -191,6 +207,14 @@ def print_table(results: Dict[str, ArmResult]) -> None:
     for row in rows:
         print("".join(str(row[key]).ljust(width) for key, _, width in headers))
     print("=" * 100)
+
+    broken = {k: r for k, r in results.items() if r.failed_runs}
+    if broken:
+        print("\n[경고] 아래 구성은 디코더 호출이 실패한 실행이 섞여 있다.")
+        print("       실패한 실행은 카드가 0개가 되어 규칙 지표를 끌어내리는 반면,")
+        print("       심판 호출도 함께 실패하면 품질 지표에서는 제외되어 행이 모순된다.")
+        for key, result in broken.items():
+            print(f"  - {key}: {len(result.failed_runs)}/{len(result.total_ms)}회 실패 | {result.failed_runs[0][:80]}")
 
     polluted = {k: r for k, r in results.items() if r.degraded}
     if polluted:

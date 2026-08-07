@@ -91,6 +91,10 @@ class MultiLayerDecoderPipeline:
         }
         trace.cards_before_integration = sum(len(result.cards) for result in results)
         trace.degraded_backends = self._degraded_backends()
+        trace.failed_modalities = [
+            f"{r.modality.value}:{(r.error or r.insufficient_reason)[:60]}"
+            for r in results if r.failed
+        ]
 
         # ---- 2층 --------------------------------------------------
         if self.config.enable_integration:
