@@ -41,10 +41,11 @@ INTEGRATION_SCHEMA: Dict[str, Any] = {
                 "properties": {
                     "card_a": {"type": "string"},
                     "card_b": {"type": "string"},
+                    "same_subject": {"type": "boolean"},
                     "same_fact": {"type": "boolean"},
                     "reason": {"type": "string"},
                 },
-                "required": ["card_a", "card_b", "same_fact", "reason"],
+                "required": ["card_a", "card_b", "same_subject", "same_fact", "reason"],
                 "additionalProperties": False,
             },
         },
@@ -84,8 +85,15 @@ INTEGRATION_SYSTEM = """너는 멀티모달 RAG 시스템의 근거 통합 계�
 최종 답변 디코더가 쓸 근거 집합으로 정리한다. 답변은 작성하지 않는다.
 
 할 일
-1. 중복: 아래에 주어지는 [중복 후보 쌍] 목록의 **모든 쌍**에 대해 same_fact 를
+1. 중복: 아래에 주어지는 [중복 후보 쌍] 목록의 **모든 쌍**에 대해 두 가지를
    판정해 pair_verdicts 에 넣어라. 한 쌍도 빠뜨리지 마라.
+   - same_subject: 두 카드가 **같은 대상**을 말하는가. 인물, 작품, 기관, 제품이
+     다르면 false 다. 문장 구조가 비슷하다는 이유로 true 로 하지 마라.
+     반례: "Scott Derrickson은 미국 감독이다" 와 "Ed Wood는 미국 제작자이다" 는
+     서술 형식이 같지만 대상이 다르므로 same_subject=false 다. 두 인물을 비교하는
+     질문에서는 두 카드가 모두 필요하므로 절대 병합해서는 안 된다.
+   - same_fact: 같은 대상에 대해 같은 사실을 말하는가.
+   두 값이 **모두 true 일 때만** 중복으로 처리된다.
    판단 기준은 어휘가 아니라 의미다. 표현이 전혀 겹치지 않아도, 한쪽이 전문
    용어를 쓰고 다른 쪽이 그 원리를 풀어 썼어도, 가리키는 사실이 같으면 true 다.
    예시
@@ -400,6 +408,7 @@ class EvidenceIntegrationLayer:
             for v in (raw.get("pair_verdicts") or [])
             if isinstance(v, Mapping)
             and v.get("same_fact")
+            and v.get("same_subject")   # 대상이 같아야 병합한다
             and str(v.get("card_a")) in by_id
             and str(v.get("card_b")) in by_id
         ]
@@ -409,6 +418,18 @@ class EvidenceIntegrationLayer:
         kept_ids = [cid for cid in (raw.get("kept_card_ids") or []) if cid in by_id]
         # LLM 이 전부 버리면 근거 없는 답변이 되므로 규칙 결과로 되돌린다.
         kept = [by_id[cid] for cid in kept_ids] if kept_ids else list(cards)
+
+        # 선별 압력이 없으면 임의 제외를 허용하지 않는다.
+        # 카드 수와 분량이 모두 예산 안에 들어오는데도 LLM 이 카드를 버리면
+        # 다단계 추론에 필요한 근거가 사라진다. 실측에서 두 문서를 함께
+        # 보아야 답할 수 있는 질문에서 한쪽이 제거되어 답변이 실패했다.
+        # 이 경우 제외는 중복 병합과 분량 절단으로만 이루어진다.
+        no_pressure = (
+            len(cards) <= self.max_cards
+            and sum(c.char_cost() for c in cards) <= self.char_budget
+        )
+        if no_pressure:
+            kept = list(cards)
 
         # 중복 묶음에서 한쪽만 남긴다. 모델이 kept_card_ids 를 잘못 채워도
         # 중복이 함께 살아남지 않도록 규칙으로 강제한다.
