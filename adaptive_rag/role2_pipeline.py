@@ -25,11 +25,7 @@ def _compat_from_encoder_outputs(
     modality_summaries: Optional[Mapping[str, Any]] = None,
     metadata: Optional[Mapping[str, Mapping[str, Any]]] = None,
 ):
-    """기존 V4.run()과 새 InputBridge 계약을 연결한다.
-
-    V4가 처음 작성될 때 사용하던 from_encoder_outputs 호출을 유지하면서,
-    이미 준비된 InitialMultimodalContext와 RoutedInput 목록도 그대로 받을 수 있게 한다.
-    """
+    """기존 V4.run()과 새 InputBridge 계약을 연결한다."""
 
     if isinstance(encoder_outputs, cls):
         return encoder_outputs
@@ -107,13 +103,20 @@ class KARINARole2Pipeline(AdaptiveMultimodalRAGPipelineV4):
         content_hints: Optional[Mapping[str, Any]] = None,
         source_metadata: Optional[Mapping[str, Mapping[str, Any]]] = None,
     ) -> AdaptiveRAGOutput:
-        """예찬 InputRouter를 파일별로 호출해 출처 관계를 보존하며 실행한다."""
+        """예찬 InputRouter의 원래 route() 계약을 사용해 바로 실행한다.
 
-        initial_context, _query_encoder_output = InputBridge.from_router_calls(
-            router=router,
+        Router가 모달리티별 리스트 순서를 보존하고 InputBridge가 원본 파일을
+        같은 모달리티 순서로 다시 매핑하므로 source_id/path 관계가 유지된다.
+        """
+
+        encoder_outputs = router.route(
             query=question,
+            file_paths=list(file_paths),
+        )
+        initial_context = InputBridge.from_router_output(
+            encoder_outputs=encoder_outputs,
             file_paths=file_paths,
-            content_hints=content_hints,
+            modality_summaries=content_hints,
             source_metadata=source_metadata,
         )
         return self.run(
