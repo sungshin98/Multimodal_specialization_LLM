@@ -11,8 +11,7 @@ import hashlib
 
 import numpy as np
 
-from adaptive_rag.adaptive_multimodal_rag_V4 import (
-    AdaptiveMultimodalRAGPipelineV4,
+from .adaptive_multimodal_rag_V4 import (
     CallableVectorEncoder,
     InMemoryRetriever,
     Modality,
@@ -21,6 +20,7 @@ from adaptive_rag.adaptive_multimodal_rag_V4 import (
     RuleBasedQuestionUnderstandingDecoder,
     build_decoder_inputs,
 )
+from .role2_pipeline import KARINARole2Pipeline
 
 
 @dataclass
@@ -56,7 +56,7 @@ retrievers = {
     ),
 }
 
-pipeline = AdaptiveMultimodalRAGPipelineV4(
+pipeline = KARINARole2Pipeline(
     query_decoder=RuleBasedQuestionUnderstandingDecoder(),
     complexity_analyzer=RuleBasedComplexityAnalyzer(),
     retrievers=retrievers,
@@ -73,11 +73,13 @@ def test_skip_path() -> None:
     output = pipeline.run(
         "이 포스터의 색조와 구도를 설명해줘.",
         encoder_outputs=encoder_outputs,
-        modality_summaries={"image": "저채도 청색 배경과 단독 인물 구도"},
+        file_paths=["data/poster_input.jpg"],
+        content_hints={"image_0": "저채도 청색 배경과 단독 인물 구도"},
     )
     assert output.retrieval_decision.action == RetrievalAction.SKIP
     assert output.retrieval_results == {}
-    assert output.initial_context["signals"][0]["modality"] == "image"
+    assert output.initial_context["routed_inputs"][0]["modality"] == "image"
+    assert output.initial_context["routed_inputs"][0]["source_id"] == "image_0"
     assert "저채도" in output.query_context["input_context"]
 
 
@@ -85,7 +87,8 @@ def test_retrieval_packet() -> None:
     output = pipeline.run(
         "이 포스터와 감독의 이전 작품 스타일을 비교하고 출처로 검증해줘.",
         encoder_outputs=encoder_outputs,
-        modality_summaries={"image": "저채도 청색 배경과 단독 인물 구도"},
+        file_paths=["data/poster_input.jpg"],
+        content_hints={"image_0": "저채도 청색 배경과 단독 인물 구도"},
     )
     assert output.retrieval_decision.action == RetrievalAction.RETRIEVE_AND_VERIFY
     assert "text" in output.retrieval_results
