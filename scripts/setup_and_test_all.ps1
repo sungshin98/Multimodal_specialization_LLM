@@ -1,6 +1,7 @@
 param(
     [string]$ProjectDir = "$HOME\PycharmProjects\KARINA_Integration",
     [string]$EnvName = "KARINA",
+    [switch]$ReuseExisting,
     [switch]$InstallEncoderDependencies,
     [switch]$RunRealEncoderTest
 )
@@ -44,15 +45,25 @@ $ProjectDir = [IO.Path]::GetFullPath($ProjectDir)
 $ParentDir = Split-Path -Parent $ProjectDir
 New-Item -ItemType Directory -Force -Path $ParentDir | Out-Null
 
+Write-Host "`n[1/6] 저장소와 세 담당 브랜치 준비" -ForegroundColor Green
 if (Test-Path $ProjectDir) {
-    $backup = "${ProjectDir}_backup_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
-    Write-Host "기존 폴더를 보존하기 위해 이동합니다: $backup" -ForegroundColor Yellow
-    Move-Item -Path $ProjectDir -Destination $backup
+    if ($ReuseExisting) {
+        if (-not (Test-Path (Join-Path $ProjectDir ".git"))) {
+            throw "-ReuseExisting을 사용했지만 Git 저장소가 아닙니다: $ProjectDir"
+        }
+        Write-Host "기존 통합 작업공간을 재사용합니다: $ProjectDir" -ForegroundColor Yellow
+        Set-Location $ProjectDir
+    } else {
+        $backup = "${ProjectDir}_backup_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
+        Write-Host "기존 폴더를 보존하기 위해 이동합니다: $backup" -ForegroundColor Yellow
+        Move-Item -Path $ProjectDir -Destination $backup
+        Invoke-Checked -Command "git" -CommandArgs @("clone", "--no-single-branch", $Repository, $ProjectDir)
+        Set-Location $ProjectDir
+    }
+} else {
+    Invoke-Checked -Command "git" -CommandArgs @("clone", "--no-single-branch", $Repository, $ProjectDir)
+    Set-Location $ProjectDir
 }
-
-Write-Host "`n[1/6] 저장소와 세 담당 브랜치 다운로드" -ForegroundColor Green
-Invoke-Checked -Command "git" -CommandArgs @("clone", "--no-single-branch", $Repository, $ProjectDir)
-Set-Location $ProjectDir
 Invoke-Checked -Command "git" -CommandArgs @("fetch", "origin", "joyechan", "sungshin", "haneul")
 
 Write-Host "`n[2/6] 통합 작업공간 구성" -ForegroundColor Green
@@ -106,7 +117,7 @@ if ($RunRealEncoderTest) {
     $Missing = @($RequiredFiles | Where-Object { -not (Test-Path $_) })
     if ($Missing.Count -gt 0) {
         Write-Host "실제 Encoder 테스트에 필요한 체크포인트/샘플 데이터가 Git에 포함되어 있지 않습니다." -ForegroundColor Yellow
-        Write-Host "다음 경로에 파일을 배치한 뒤 같은 명령을 다시 실행하세요:" -ForegroundColor Yellow
+        Write-Host "다음 경로에 파일을 배치한 뒤 -ReuseExisting 옵션으로 다시 실행하세요:" -ForegroundColor Yellow
         $Missing | ForEach-Object { Write-Host "  - $_" -ForegroundColor Yellow }
         throw "실제 Encoder 테스트 파일 누락"
     }
@@ -120,7 +131,7 @@ if ($RunRealEncoderTest) {
     }
 } else {
     Write-Host "실제 Encoder 모델 테스트는 생략했습니다." -ForegroundColor Yellow
-    Write-Host "체크포인트와 샘플 데이터를 배치한 뒤 -RunRealEncoderTest 옵션으로 실행할 수 있습니다." -ForegroundColor Yellow
+    Write-Host "체크포인트와 샘플 데이터를 배치한 뒤 -ReuseExisting -RunRealEncoderTest 옵션으로 실행할 수 있습니다." -ForegroundColor Yellow
 }
 
 Write-Host "`n============================================================" -ForegroundColor Green
