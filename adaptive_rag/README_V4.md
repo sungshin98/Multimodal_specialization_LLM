@@ -81,6 +81,8 @@ content_hint    -> 문서 내용, image caption, video summary 등 의미 정보
 ```
 
 이 결합은 역할 1의 `EncoderOutput` 규격을 바꾸지 않고 역할 2의 `InputBridge`에서 수행한다.
+`SourceAwarePromptQuestionUnderstandingDecoder`는 `RoutedInput`의 `content_hint`만을 의미 정보로 사용하고,
+벡터 차원은 연결 검증 정보로만 취급한다.
 
 ## 주요 파일
 
@@ -117,7 +119,7 @@ output = role2_pipeline.run(
 )
 ```
 
-### 2. 파일별 출처를 가장 확실히 보존하는 경우
+### 2. Router 호출까지 역할 2 진입점에 맡기는 경우
 
 ```python
 output = role2_pipeline.run_from_router(
@@ -131,8 +133,8 @@ output = role2_pipeline.run_from_router(
 )
 ```
 
-`run_from_router()`는 파일마다 `route_file()`을 호출하므로 동일 모달리티 파일이 여러 개여도
-원본 경로와 인코더 출력의 1:1 관계를 유지한다.
+`run_from_router()`는 예찬의 기존 `route()` 계약을 그대로 사용하고, `InputBridge`가
+모달리티별 출력 순서와 원본 파일 순서를 매핑하여 출처 관계를 유지한다.
 
 ## 역할 3 전달
 
