@@ -13,13 +13,13 @@ $Repository = "https://github.com/sungshin98/Multimodal_specialization_LLM.git"
 function Invoke-Checked {
     param(
         [Parameter(Mandatory = $true)][string]$Command,
-        [Parameter(ValueFromRemainingArguments = $true)][string[]]$Arguments
+        [Parameter(Mandatory = $true)][string[]]$CommandArgs
     )
 
-    Write-Host "`n> $Command $($Arguments -join ' ')" -ForegroundColor Cyan
-    & $Command @Arguments
+    Write-Host "`n> $Command $($CommandArgs -join ' ')" -ForegroundColor Cyan
+    & $Command @CommandArgs
     if ($LASTEXITCODE -ne 0) {
-        throw "명령 실패(exit=$LASTEXITCODE): $Command $($Arguments -join ' ')"
+        throw "명령 실패(exit=$LASTEXITCODE): $Command $($CommandArgs -join ' ')"
     }
 }
 
@@ -51,14 +51,14 @@ if (Test-Path $ProjectDir) {
 }
 
 Write-Host "`n[1/6] 저장소와 세 담당 브랜치 다운로드" -ForegroundColor Green
-Invoke-Checked git clone --no-single-branch $Repository $ProjectDir
+Invoke-Checked -Command "git" -CommandArgs @("clone", "--no-single-branch", $Repository, $ProjectDir)
 Set-Location $ProjectDir
-Invoke-Checked git fetch origin joyechan sungshin haneul
+Invoke-Checked -Command "git" -CommandArgs @("fetch", "origin", "joyechan", "sungshin", "haneul")
 
 Write-Host "`n[2/6] 통합 작업공간 구성" -ForegroundColor Green
-Invoke-Checked git switch -C integration origin/sungshin
-Invoke-Checked git checkout origin/joyechan -- modular_encoder
-Invoke-Checked git checkout origin/haneul -- evidence_decoder
+Invoke-Checked -Command "git" -CommandArgs @("switch", "-C", "integration", "origin/sungshin")
+Invoke-Checked -Command "git" -CommandArgs @("checkout", "origin/joyechan", "--", "modular_encoder")
+Invoke-Checked -Command "git" -CommandArgs @("checkout", "origin/haneul", "--", "evidence_decoder")
 
 Write-Host "통합 폴더:" -ForegroundColor DarkCyan
 Write-Host "  modular_encoder : joyechan" -ForegroundColor DarkCyan
@@ -67,20 +67,20 @@ Write-Host "  evidence_decoder: haneul" -ForegroundColor DarkCyan
 
 Write-Host "`n[3/6] Conda 환경 준비" -ForegroundColor Green
 if (-not (Test-CondaEnvironment $EnvName)) {
-    Invoke-Checked conda create -n $EnvName python=3.11 -y
+    Invoke-Checked -Command "conda" -CommandArgs @("create", "-n", $EnvName, "python=3.11", "-y")
 } else {
     Write-Host "기존 Conda 환경을 재사용합니다: $EnvName" -ForegroundColor Yellow
 }
-Invoke-Checked conda run -n $EnvName --no-capture-output python -m pip install --upgrade pip
-Invoke-Checked conda run -n $EnvName --no-capture-output python -m pip install numpy python-dotenv
+Invoke-Checked -Command "conda" -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "--upgrade", "pip")
+Invoke-Checked -Command "conda" -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "numpy", "python-dotenv")
 
 if ($InstallEncoderDependencies -or $RunRealEncoderTest) {
     Write-Host "`nEncoder 의존성 설치를 시작합니다. Torch/Transformers 설치로 시간이 걸릴 수 있습니다." -ForegroundColor Yellow
-    Invoke-Checked conda run -n $EnvName --no-capture-output python -m pip install -r modular_encoder\requirements.txt
+    Invoke-Checked -Command "conda" -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "-r", "modular_encoder\requirements.txt")
 }
 
 Write-Host "`n[4/6] 전체 소스 문법 검사" -ForegroundColor Green
-Invoke-Checked conda run -n $EnvName --no-capture-output python -m compileall adaptive_rag evidence_decoder modular_encoder
+Invoke-Checked -Command "conda" -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "compileall", "adaptive_rag", "evidence_decoder", "modular_encoder")
 
 Write-Host "`n[5/6] 담당 모듈 및 전체 연결 오프라인 테스트" -ForegroundColor Green
 $Tests = @(
@@ -91,7 +91,8 @@ $Tests = @(
 )
 
 foreach ($Test in $Tests) {
-    Invoke-Checked conda run -n $EnvName --no-capture-output @Test
+    $CondaArgs = @("run", "-n", $EnvName, "--no-capture-output") + $Test
+    Invoke-Checked -Command "conda" -CommandArgs $CondaArgs
 }
 
 Write-Host "`n[6/6] 실제 Encoder 테스트 확인" -ForegroundColor Green
@@ -112,7 +113,7 @@ if ($RunRealEncoderTest) {
 
     Push-Location modular_encoder
     try {
-        Invoke-Checked conda run -n $EnvName --no-capture-output python tests\test_final_router.py
+        Invoke-Checked -Command "conda" -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "tests\test_final_router.py")
     }
     finally {
         Pop-Location
