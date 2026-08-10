@@ -2,6 +2,7 @@ param(
     [string]$ProjectDir = "$HOME\PycharmProjects\KARINA_Integration",
     [string]$EnvName = "KARINA",
     [switch]$ReuseExisting,
+    [switch]$Offline,
     [switch]$InstallEncoderDependencies,
     [switch]$RunRealEncoderTest
 )
@@ -58,19 +59,22 @@ function Resolve-CondaCommand {
     throw "Conda was not found. Expected a command named 'conda' or an installation under USERPROFILE\anaconda3 or USERPROFILE\miniconda3."
 }
 
-function Test-CondaEnvironment {
-    param(
-        [Parameter(Mandatory = $true)][string]$Name,
-        [Parameter(Mandatory = $true)][string]$CondaCommand
-    )
-
+function Get-CondaEnvironmentNames {
+    param([Parameter(Mandatory = $true)][string]$CondaCommand)
     $jsonText = (& $CondaCommand env list --json) | Out-String
     if ($LASTEXITCODE -ne 0) {
         throw "Failed to list Conda environments."
     }
     $json = $jsonText | ConvertFrom-Json
-    $suffix = [IO.Path]::DirectorySeparatorChar + $Name
-    return [bool]($json.envs | Where-Object { $_.EndsWith($suffix, [StringComparison]::OrdinalIgnoreCase) })
+    return @($json.envs | ForEach-Object { Split-Path $_ -Leaf })
+}
+
+function Test-CondaEnvironment {
+    param(
+        [Parameter(Mandatory = $true)][string]$Name,
+        [Parameter(Mandatory = $true)][string]$CondaCommand
+    )
+    return $Name -in (Get-CondaEnvironmentNames -CondaCommand $CondaCommand)
 }
 
 Assert-Command git
@@ -103,7 +107,11 @@ if (Test-Path $ProjectDir) {
 Invoke-Checked -Command "git" -CommandArgs @("fetch", "origin", "joyechan", "sungshin", "haneul")
 
 Write-Host "`n[2/6] Building the integration workspace" -ForegroundColor Green
-Invoke-Checked -Command "git" -CommandArgs @("switch", "-C", "integration", "origin/sungshin")
+if ($ReuseExisting) {
+    Invoke-Checked -Command "git" -CommandArgs @("reset", "--hard", "origin/sungshin")
+} else {
+    Invoke-Checked -Command "git" -CommandArgs @("switch", "-C", "integration", "origin/sungshin")
+}
 Invoke-Checked -Command "git" -CommandArgs @("checkout", "origin/joyechan", "--", "modular_encoder")
 Invoke-Checked -Command "git" -CommandArgs @("checkout", "origin/haneul", "--", "evidence_decoder")
 
@@ -113,17 +121,34 @@ Write-Host "  adaptive_rag    : sungshin" -ForegroundColor DarkCyan
 Write-Host "  evidence_decoder: haneul" -ForegroundColor DarkCyan
 
 Write-Host "`n[3/6] Preparing the Conda environment" -ForegroundColor Green
-if (-not (Test-CondaEnvironment -Name $EnvName -CondaCommand $CondaCommand)) {
+$EnvironmentExists = Test-CondaEnvironment -Name $EnvName -CondaCommand $CondaCommand
+if (-not $EnvironmentExists) {
+    if ($Offline) {
+        $Available = (Get-CondaEnvironmentNames -CondaCommand $CondaCommand) -join ", "
+        throw "Offline mode cannot create '$EnvName'. Choose an existing environment. Available: $Available"
+    }
     Invoke-Checked -Command $CondaCommand -CommandArgs @("create", "-n", $EnvName, "python=3.11", "-y")
 } else {
     Write-Host "Reusing the existing Conda environment: $EnvName" -ForegroundColor Yellow
 }
-Invoke-Checked -Command $CondaCommand -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "--upgrade", "pip")
-Invoke-Checked -Command $CondaCommand -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "numpy", "python-dotenv")
 
-if ($InstallEncoderDependencies -or $RunRealEncoderTest) {
-    Write-Host "`nInstalling encoder dependencies. This may take a while." -ForegroundColor Yellow
-    Invoke-Checked -Command $CondaCommand -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "-r", "modular_encoder\requirements.txt")
+if ($Offline) {
+    Write-Host "Offline mode: skipping all package downloads." -ForegroundColor Yellow
+    Invoke-Checked -Command $CondaCommand -CommandArgs @(
+        "run", "-n", $EnvName, "--no-capture-output", "python", "-c",
+        "import sys, numpy; print(sys.version); print('numpy', numpy.__version__)"
+    )
+    if ($InstallEncoderDependencies -or $RunRealEncoderTest) {
+        Write-Host "Offline mode cannot install missing encoder dependencies." -ForegroundColor Yellow
+    }
+} else {
+    Invoke-Checked -Command $CondaCommand -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "--upgrade", "pip")
+    Invoke-Checked -Command $CondaCommand -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "numpy", "python-dotenv")
+
+    if ($InstallEncoderDependencies -or $RunRealEncoderTest) {
+        Write-Host "`nInstalling encoder dependencies. This may take a while." -ForegroundColor Yellow
+        Invoke-Checked -Command $CondaCommand -CommandArgs @("run", "-n", $EnvName, "--no-capture-output", "python", "-m", "pip", "install", "-r", "modular_encoder\requirements.txt")
+    }
 }
 
 Write-Host "`n[4/6] Compiling all source files" -ForegroundColor Green
