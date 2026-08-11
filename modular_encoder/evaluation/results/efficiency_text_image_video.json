@@ -1,0 +1,129 @@
+{
+  "experiment": "Eager vs Router + Lazy Loading",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "audio_used": false,
+  "raw_results": [
+    {
+      "mode": "eager",
+      "input": "text",
+      "initialization_time_sec": 24.417958699996234,
+      "inference_time_sec": 0.08609260000230279,
+      "total_time_sec": 24.50405490000412,
+      "peak_memory_mb": 3533.59765625
+    },
+    {
+      "mode": "lazy",
+      "input": "text",
+      "initialization_time_sec": 3.989999822806567e-05,
+      "inference_time_sec": 7.80419570000231,
+      "total_time_sec": 7.8042379000035,
+      "peak_memory_mb": 2428.41015625
+    },
+    {
+      "mode": "eager",
+      "input": "image",
+      "initialization_time_sec": 21.794746500003384,
+      "inference_time_sec": 0.18065930000011576,
+      "total_time_sec": 21.975409700004093,
+      "peak_memory_mb": 3552.85546875
+    },
+    {
+      "mode": "lazy",
+      "input": "image",
+      "initialization_time_sec": 3.7699996028095484e-05,
+      "inference_time_sec": 6.68466890000127,
+      "total_time_sec": 6.68470890000026,
+      "peak_memory_mb": 2041.95703125
+    },
+    {
+      "mode": "eager",
+      "input": "video",
+      "initialization_time_sec": 21.772786100002122,
+      "inference_time_sec": 2.8702792999974918,
+      "total_time_sec": 24.643069400000968,
+      "peak_memory_mb": 4006.21484375
+    },
+    {
+      "mode": "lazy",
+      "input": "video",
+      "initialization_time_sec": 4.189999890513718e-05,
+      "inference_time_sec": 4.5705364999957965,
+      "total_time_sec": 4.570581100000709,
+      "peak_memory_mb": 997.35546875
+    },
+    {
+      "mode": "eager",
+      "input": "mixed",
+      "initialization_time_sec": 22.842359399997804,
+      "inference_time_sec": 3.0068106000035186,
+      "total_time_sec": 25.849173199996585,
+      "peak_memory_mb": 4020.1484375
+    },
+    {
+      "mode": "lazy",
+      "input": "mixed",
+      "initialization_time_sec": 4.369999805931002e-05,
+      "inference_time_sec": 20.267552400000568,
+      "total_time_sec": 20.267598599995836,
+      "peak_memory_mb": 3280.6015625
+    }
+  ],
+  "comparison": [
+    {
+      "input": "text",
+      "eager_peak_memory_mb": 3533.59765625,
+      "lazy_peak_memory_mb": 2428.41015625,
+      "memory_reduction_percent": 31.276551761494847,
+      "eager_initialization_time_sec": 24.417958699996234,
+      "lazy_initialization_time_sec": 3.989999822806567e-05,
+      "eager_inference_time_sec": 0.08609260000230279,
+      "lazy_inference_time_sec": 7.80419570000231,
+      "eager_total_time_sec": 24.50405490000412,
+      "lazy_total_time_sec": 7.8042379000035,
+      "time_reduction_percent": 68.15123892004426
+    },
+    {
+      "input": "image",
+      "eager_peak_memory_mb": 3552.85546875,
+      "lazy_peak_memory_mb": 2041.95703125,
+      "memory_reduction_percent": 42.526313011870954,
+      "eager_initialization_time_sec": 21.794746500003384,
+      "lazy_initialization_time_sec": 3.7699996028095484e-05,
+      "eager_inference_time_sec": 0.18065930000011576,
+      "lazy_inference_time_sec": 6.68466890000127,
+      "eager_total_time_sec": 21.975409700004093,
+      "lazy_total_time_sec": 6.68470890000026,
+      "time_reduction_percent": 69.58095893884966
+    },
+    {
+      "input": "video",
+      "eager_peak_memory_mb": 4006.21484375,
+      "lazy_peak_memory_mb": 997.35546875,
+      "memory_reduction_percent": 75.1047932362901,
+      "eager_initialization_time_sec": 21.772786100002122,
+      "lazy_initialization_time_sec": 4.189999890513718e-05,
+      "eager_inference_time_sec": 2.8702792999974918,
+      "lazy_inference_time_sec": 4.5705364999957965,
+      "eager_total_time_sec": 24.643069400000968,
+      "lazy_total_time_sec": 4.570581100000709,
+      "time_reduction_percent": 81.45287412938694
+    },
+    {
+      "input": "mixed",
+      "eager_peak_memory_mb": 4020.1484375,
+      "lazy_peak_memory_mb": 3280.6015625,
+      "memory_reduction_percent": 18.396009164773535,
+      "eager_initialization_time_sec": 22.842359399997804,
+      "lazy_initialization_time_sec": 4.369999805931002e-05,
+      "eager_inference_time_sec": 3.0068106000035186,
+      "lazy_inference_time_sec": 20.267552400000568,
+      "eager_total_time_sec": 25.849173199996585,
+      "lazy_total_time_sec": 20.267598599995836,
+      "time_reduction_percent": 21.592855434159443
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+numpy>=1.24
+# 선택 의존성
+# faiss-cpu
+# sentence-transformers

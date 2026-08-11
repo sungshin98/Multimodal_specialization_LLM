@@ -1,0 +1,143 @@
+=== Adaptive RAG Output ===
+{
+  "schema_version": "3.0",
+  "original_query": "입력 포스터를 바탕으로 현재 영화와 감독의 이전 작품의 시각적 스타일 차이를 비교해줘.",
+  "normalized_query": "입력 포스터를 바탕으로 현재 영화와 감독의 이전 작품의 시각적 스타일 차이를 비교해줘.",
+  "query_context": {
+    "input_context": "어두운 색조, 단독 인물 구도, 강한 명암 대비가 나타나는 영화 포스터",
+    "identified_entities": [],
+    "required_operations": [
+      "compare"
+    ],
+    "constraints": [],
+    "modality_focus": {
+      "image": [
+        "포스터",
+        "색조",
+        "구도"
+      ]
+    },
+    "answer_constraints": [],
+    "retrieval_action": "retrieve",
+    "sub_queries": [
+      {
+        "query": "입력 포스터를 바탕으로 현재 영화와 감독의 이전 작품의 시각적 스타일 차이를 비교해줘.",
+        "modality": "image",
+        "priority": "medium"
+      }
+    ]
+  },
+  "complexity": {
+    "level": "low",
+    "score": 0.23,
+    "retrieval_demand": {
+      "image": "medium"
+    },
+    "features": {
+      "query_length": 48,
+      "entity_count": 0,
+      "operation_count": 1,
+      "required_modality_count": 1,
+      "sub_query_count": 1,
+      "comparison_required": true,
+      "verification_required": false,
+      "temporal_reasoning": true,
+      "ambiguity_detected": false,
+      "external_knowledge_required": true,
+      "multimodal_reasoning_required": false
+    },
+    "reasons": [
+      "비교 추론 필요",
+      "시간적 관계 분석 필요"
+    ]
+  },
+  "retrieval_results": {
+    "image": {
+      "modality": "image",
+      "query": "입력 포스터를 바탕으로 현재 영화와 감독의 이전 작품의 시각적 스타일 차이를 비교해줘.",
+      "candidate_k": 50,
+      "final_k": 3,
+      "use_reranker": false,
+      "uncertainty": {
+        "top1_score": -0.035893,
+        "top1_top2_gap": 0.034938,
+        "score_variance": 0.002771,
+        "shannon_entropy": 1.097252,
+        "normalized_entropy": 0.998761,
+        "level": "high"
+      },
+      "evidence": [
+        {
+          "evidence_id": "image_2",
+          "modality": "image",
+          "score": -0.03589296340942383,
+          "content": "poster_003.jpg",
+          "metadata": {
+            "rank": 1
+          }
+        },
+        {
+          "evidence_id": "image_0",
+          "modality": "image",
+          "score": -0.07083111256361008,
+          "content": "poster_001.jpg",
+          "metadata": {
+            "rank": 2
+          }
+        },
+        {
+          "evidence_id": "image_1",
+          "modality": "image",
+          "score": -0.16084983944892883,
+          "content": "poster_002.jpg",
+          "metadata": {
+            "rank": 3
+          }
+        }
+      ]
+    }
+  }
+}
+
+=== Inputs for Modality Decoders ===
+{
+  "image": {
+    "original_query": "입력 포스터를 바탕으로 현재 영화와 감독의 이전 작품의 시각적 스타일 차이를 비교해줘.",
+    "normalized_query": "입력 포스터를 바탕으로 현재 영화와 감독의 이전 작품의 시각적 스타일 차이를 비교해줘.",
+    "focus_features": [
+      "포스터",
+      "색조",
+      "구도"
+    ],
+    "required_operations": [
+      "compare"
+    ],
+    "constraints": [],
+    "evidence": [
+      {
+        "evidence_id": "image_2",
+        "score": -0.03589296340942383,
+        "content": "poster_003.jpg",
+        "metadata": {
+          "rank": 1
+        }
+      },
+      {
+        "evidence_id": "image_0",
+        "score": -0.07083111256361008,
+        "content": "poster_001.jpg",
+        "metadata": {
+          "rank": 2
+        }
+      },
+      {
+        "evidence_id": "image_1",
+        "score": -0.16084983944892883,
+        "content": "poster_002.jpg",
+        "metadata": {
+          "rank": 3
+        }
+      }
+    ]
+  }
+}
