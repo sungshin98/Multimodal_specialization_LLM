@@ -1,0 +1,400 @@
+########## DILUTION (12패킷 x 2회, 셀당 n=6) ##########
+패킷 12개 x 반복 2회 x 구성 5종
+비전 백엔드: gemini
+  (워밍업 1회 완료)
+  [plain-rag] dil_film_0                 962ms  호출1  카드3->3
+  [plain-rag] dil_film_0                 911ms  호출1  카드3->3
+  [raw] dil_film_0                1407ms  호출1  카드3->3
+  [raw] dil_film_0                1238ms  호출1  카드3->3
+  [no-integ] dil_film_0                5093ms  호출2  카드3->3
+  [no-integ] dil_film_0                4778ms  호출2  카드3->3
+  [bypass] dil_film_0                7260ms  호출3  카드3->3
+  [bypass] dil_film_0                8242ms  호출3  카드3->1
+  [full] dil_film_0                9686ms  호출3  카드3->1
+  [full] dil_film_0                8694ms  호출3  카드3->3
+  [plain-rag] dil_film_2                4646ms  호출1  카드5->5
+  [plain-rag] dil_film_2                1394ms  호출1  카드5->5
+  [raw] dil_film_2                1892ms  호출1  카드5->5
+  [raw] dil_film_2                1621ms  호출1  카드5->5
+  [no-integ] dil_film_2                6089ms  호출2  카드3->3
+  [no-integ] dil_film_2                5707ms  호출2  카드3->3
+  [bypass] dil_film_2                8572ms  호출3  카드3->1
+  [bypass] dil_film_2               15459ms  호출3  카드3->3
+  [full] dil_film_2                8162ms  호출3  카드3->3
+  [full] dil_film_2                7543ms  호출3  카드3->1
+  [plain-rag] dil_film_4                1485ms  호출1  카드7->7
+  [plain-rag] dil_film_4                1270ms  호출1  카드7->7
+  [raw] dil_film_4                2152ms  호출1  카드7->7
+  [raw] dil_film_4                1598ms  호출1  카드7->7
+  [no-integ] dil_film_4                6109ms  호출2  카드3->3
+  [no-integ] dil_film_4                5810ms  호출2  카드3->3
+  [bypass] dil_film_4                9013ms  호출3  카드3->1
+  [bypass] dil_film_4                9399ms  호출3  카드3->1
+  [full] dil_film_4                8436ms  호출3  카드3->1
+  [full] dil_film_4                9028ms  호출3  카드3->1
+  [plain-rag] dil_film_6                1667ms  호출1  카드9->9
+  [plain-rag] dil_film_6                1222ms  호출1  카드9->9
+  [raw] dil_film_6                1488ms  호출1  카드9->9
+  [raw] dil_film_6                1429ms  호출1  카드9->9
+  [no-integ] dil_film_6                9949ms  호출2  카드3->3
+  [no-integ] dil_film_6                7061ms  호출2  카드3->3
+  [bypass] dil_film_6                9470ms  호출3  카드3->1
+  [bypass] dil_film_6               12201ms  호출3  카드3->3
+  [full] dil_film_6                8383ms  호출3  카드3->3
+  [full] dil_film_6                8012ms  호출3  카드3->1
+  [plain-rag] dil_fish_0                 943ms  호출1  카드3->3
+  [plain-rag] dil_fish_0                 862ms  호출1  카드3->3
+  [raw] dil_fish_0                1305ms  호출1  카드3->3
+  [raw] dil_fish_0                1277ms  호출1  카드3->3
+  [no-integ] dil_fish_0                4817ms  호출2  카드3->3
+  [no-integ] dil_fish_0                4593ms  호출2  카드3->3
+  [bypass] dil_fish_0                6732ms  호출3  카드3->3
+  [bypass] dil_fish_0                6719ms  호출3  카드3->3
+  [full] dil_fish_0                6704ms  호출3  카드3->3
+  [full] dil_fish_0                7095ms  호출3  카드3->3
+  [plain-rag] dil_fish_2                 829ms  호출1  카드5->5
+  [plain-rag] dil_fish_2                1223ms  호출1  카드5->5
+  [raw] dil_fish_2                1687ms  호출1  카드5->5
+  [raw] dil_fish_2                1679ms  호출1  카드5->5
+  [no-integ] dil_fish_2                5262ms  호출2  카드3->3
+  [no-integ] dil_fish_2                6028ms  호출2  카드4->4
+  [bypass] dil_fish_2                7132ms  호출3  카드3->3
+  [bypass] dil_fish_2                8499ms  호출3  카드3->3
+  [full] dil_fish_2                8185ms  호출3  카드3->3
+  [full] dil_fish_2                9526ms  호출3  카드3->3
+  [plain-rag] dil_fish_4                1025ms  호출1  카드7->7
+  [plain-rag] dil_fish_4                1117ms  호출1  카드7->7
+  [raw] dil_fish_4                2719ms  호출1  카드7->7
+  [raw] dil_fish_4                2099ms  호출1  카드7->7
+  [no-integ] dil_fish_4                7626ms  호출2  카드3->3
+  [no-integ] dil_fish_4                5905ms  호출2  카드3->3
+  [bypass] dil_fish_4                9564ms  호출3  카드3->3
+  [bypass] dil_fish_4                8198ms  호출3  카드3->3
+  [full] dil_fish_4                8408ms  호출3  카드3->3
+  [full] dil_fish_4               10725ms  호출3  카드3->3
+  [plain-rag] dil_fish_6                1104ms  호출1  카드9->9
+  [plain-rag] dil_fish_6                1035ms  호출1  카드9->9
+  [raw] dil_fish_6                2306ms  호출1  카드9->9
+  [raw] dil_fish_6                3126ms  호출1  카드9->9
+  [no-integ] dil_fish_6                6934ms  호출2  카드3->3
+  [no-integ] dil_fish_6                6465ms  호출2  카드3->3
+  [bypass] dil_fish_6                8702ms  호출3  카드3->3
+  [bypass] dil_fish_6                9104ms  호출3  카드3->3
+  [full] dil_fish_6                8496ms  호출3  카드3->3
+  [full] dil_fish_6                9409ms  호출3  카드3->3
+  [plain-rag] dil_battery_0             1128ms  호출1  카드3->3
+  [plain-rag] dil_battery_0             1097ms  호출1  카드3->3
+  [raw] dil_battery_0             1737ms  호출1  카드3->3
+  [raw] dil_battery_0             1281ms  호출1  카드3->3
+  [no-integ] dil_battery_0             6205ms  호출2  카드3->3
+  [no-integ] dil_battery_0             6400ms  호출2  카드3->3
+  [bypass] dil_battery_0             8216ms  호출3  카드3->1
+  [bypass] dil_battery_0             6699ms  호출3  카드3->1
+  [full] dil_battery_0             6609ms  호출3  카드3->1
+  [full] dil_battery_0             7540ms  호출3  카드3->3
+  [plain-rag] dil_battery_2             1246ms  호출1  카드5->5
+  [plain-rag] dil_battery_2             1298ms  호출1  카드5->5
+  [raw] dil_battery_2             1483ms  호출1  카드5->5
+  [raw] dil_battery_2             1486ms  호출1  카드5->5
+  [no-integ] dil_battery_2             5116ms  호출2  카드3->3
+  [no-integ] dil_battery_2             5015ms  호출2  카드3->3
+  [bypass] dil_battery_2             6910ms  호출3  카드3->1
+  [bypass] dil_battery_2             8418ms  호출3  카드3->1
+  [full] dil_battery_2             8844ms  호출3  카드3->3
+  [full] dil_battery_2             8753ms  호출3  카드3->3
+  [plain-rag] dil_battery_4             2214ms  호출1  카드7->7
+  [plain-rag] dil_battery_4             1891ms  호출1  카드7->7
+  [raw] dil_battery_4             2456ms  호출1  카드7->7
+  [raw] dil_battery_4             2017ms  호출1  카드7->7
+  [no-integ] dil_battery_4             5560ms  호출2  카드3->3
+  [no-integ] dil_battery_4             5221ms  호출2  카드3->3
+  [bypass] dil_battery_4             9314ms  호출3  카드3->2
+  [bypass] dil_battery_4             7411ms  호출3  카드3->1
+  [full] dil_battery_4             7895ms  호출3  카드3->1
+  [full] dil_battery_4             8388ms  호출3  카드3->1
+  [plain-rag] dil_battery_6             1097ms  호출1  카드9->9
+  [plain-rag] dil_battery_6             1227ms  호출1  카드9->9
+  [raw] dil_battery_6             2284ms  호출1  카드9->9
+  [raw] dil_battery_6             1684ms  호출1  카드9->9
+  [no-integ] dil_battery_6             6466ms  호출2  카드3->3
+  [no-integ] dil_battery_6             6598ms  호출2  카드3->3
+  [bypass] dil_battery_6             9022ms  호출3  카드3->2
+  [bypass] dil_battery_6             9390ms  호출3  카드3->2
+  [full] dil_battery_6             9004ms  호출3  카드3->2
+  [full] dil_battery_6             9123ms  호출3  카드3->2
+
+====================================================================================================
+구성                        총지연ms     1층ms     2층ms     최종ms     호출    카드전    카드후    답변자    인용    오류   오염   실패   
+----------------------------------------------------------------------------------------------------
+plain-rag@dilution/0%     952.6     0.0      0.0      952.6    1.0   3.0    3.0    257.0  0.0   0    0    0    
+raw@dilution/0%           1292.9    0.0      0.0      1292.7   1.0   3.0    3.0    291.0  3.0   0    0    0    
+no-integ@dilution/0%      4955.0    3765.8   0.0      1268.6   2.0   3.0    3.0    246.5  3.0   0    0    0    
+bypass@dilution/0%        6996.1    3727.6   2267.0   1178.6   3.0   3.0    2.0    177.5  2.0   0    0    0    
+full@dilution/0%          7317.5    3612.8   2117.8   1234.6   3.0   3.0    3.0    256.0  3.0   0    0    0    
+plain-rag@dilution/40%    1272.1    0.0      0.0      1272.1   1.0   5.0    5.0    346.0  0.0   0    0    0    
+raw@dilution/40%          1650.4    0.1      0.0      1650.1   1.0   5.0    5.0    349.5  4.0   0    0    0    
+no-integ@dilution/40%     5484.5    4169.1   0.0      1275.6   2.0   3.0    3.0    251.5  3.0   0    0    0    
+bypass@dilution/40%       8458.4    4157.5   2442.2   1123.3   3.0   3.0    2.0    216.0  2.0   0    0    0    
+full@dilution/40%         8469.1    4547.3   2604.4   1348.0   3.0   3.0    3.0    244.5  3.0   0    0    0    
+plain-rag@dilution/57%    1377.6    0.0      0.0      1377.6   1.0   7.0    7.0    446.0  0.0   0    0    0    
+raw@dilution/57%          2125.4    0.1      0.0      2124.9   1.0   7.0    7.0    465.0  5.5   0    0    0    
+no-integ@dilution/57%     5857.6    4574.7   0.0      1249.8   2.0   3.0    3.0    246.0  3.0   0    0    0    
+bypass@dilution/57%       9163.4    5266.8   2481.0   1191.2   3.0   3.0    1.5    216.5  1.5   0    0    0    
+full@dilution/57%         8422.3    4866.3   2600.8   1183.6   3.0   3.0    1.0    198.0  1.0   0    0    0    
+plain-rag@dilution/66%    1162.8    0.0      0.0      1162.8   1.0   9.0    9.0    287.0  0.0   0    0    0    
+raw@dilution/66%          1983.9    0.1      0.0      1983.4   1.0   9.0    9.0    479.0  6.0   0    0    0    
+no-integ@dilution/66%     6766.1    5481.6   0.0      1281.3   2.0   3.0    3.0    273.5  3.0   0    0    0    
+bypass@dilution/66%       9247.2    5397.2   2518.9   1153.0   3.0   3.0    2.5    189.0  2.5   0    0    0    
+full@dilution/66%         8749.9    5222.8   2354.5   1158.6   3.0   3.0    2.5    195.5  2.5   0    0    0    
+====================================================================================================
+
+============================================================================================================
+구성                    n   gold채택↑    무관거부↑      출처환각↓      중복제거↑      중복인지↑      충돌탐지↑      보강보존↑      근거정밀↑      모달소실↓      인용유효↑      인용범위↑      인용정밀↑      요지충족↑      오염서술↓      ID누출↓      
+------------------------------------------------------------------------------------------------------------
+plain-rag@dilution/0% 6   -          -          -          -          -          -          -          -          0.00       -          -          -          0.89       0.00       0.00       
+raw@dilution/0%       6   1.00       -          0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+no-integ@dilution/0%  6   1.00       -          0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+bypass@dilution/0%    6   1.00       -          0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.89       0.00       0.00       
+full@dilution/0%      6   1.00       -          0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.94       0.00       0.00       
+plain-rag@dilution/40%6   -          -          -          -          -          -          -          -          0.00       -          -          -          0.94       0.67       0.00       
+raw@dilution/40%      6   1.00       0.00       0.00       -          -          -          -          0.60       0.00       1.00       1.00       0.70       1.00       0.67       0.00       
+no-integ@dilution/40% 6   1.00       0.92       0.00       -          -          -          -          0.96       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+bypass@dilution/40%   6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.89       0.00       0.00       
+full@dilution/40%     6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+plain-rag@dilution/57%6   -          -          -          -          -          -          -          -          0.00       -          -          -          0.89       1.00       0.00       
+raw@dilution/57%      6   1.00       0.00       0.00       -          -          -          -          0.43       0.00       1.00       1.00       0.54       1.00       1.00       0.00       
+no-integ@dilution/57% 6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+bypass@dilution/57%   6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.89       0.00       0.00       
+full@dilution/57%     6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.89       0.00       0.00       
+plain-rag@dilution/66%6   -          -          -          -          -          -          -          -          0.00       -          -          -          0.89       0.00       0.00       
+raw@dilution/66%      6   1.00       0.00       0.00       -          -          -          -          0.33       0.00       1.00       1.00       0.51       1.00       1.00       0.00       
+no-integ@dilution/66% 6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+bypass@dilution/66%   6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.89       0.00       0.00       
+full@dilution/66%     6   1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.89       0.00       0.00       
+============================================================================================================
+총 소요 785.5s
+
+########## INTEGRATION (9패킷 x 2회, 셀당 n=6) ##########
+패킷 9개 x 반복 2회 x 구성 5종
+비전 백엔드: gemini
+  (워밍업 1회 완료)
+  [plain-rag] integ_film_dup            1432ms  호출1  카드4->4
+  [plain-rag] integ_film_dup            1561ms  호출1  카드4->4
+  [raw] integ_film_dup            1413ms  호출1  카드4->4
+  [raw] integ_film_dup            1198ms  호출1  카드4->4
+  [no-integ] integ_film_dup            6348ms  호출2  카드4->4
+  [no-integ] integ_film_dup            6461ms  호출2  카드4->4
+  [bypass] integ_film_dup           10437ms  호출3  카드4->2
+  [bypass] integ_film_dup           10530ms  호출3  카드4->2
+  [full] integ_film_dup           13507ms  호출3  카드4->3
+  [full] integ_film_dup           11459ms  호출3  카드4->3
+  [plain-rag] integ_film_conf           1575ms  호출1  카드4->4
+  [plain-rag] integ_film_conf           1943ms  호출1  카드4->4
+  [raw] integ_film_conf           2738ms  호출1  카드4->4
+  [raw] integ_film_conf           2611ms  호출1  카드4->4
+  [no-integ] integ_film_conf           7576ms  호출2  카드4->4
+  [no-integ] integ_film_conf           7170ms  호출2  카드4->4
+  [bypass] integ_film_conf          12724ms  호출3  카드4->4
+  [bypass] integ_film_conf          14381ms  호출3  카드4->2
+  [full] integ_film_conf          10934ms  호출3  카드4->4
+  [full] integ_film_conf          12686ms  호출3  카드3->2
+  [plain-rag] integ_film_both           2352ms  호출1  카드7->7
+  [plain-rag] integ_film_both           4215ms  호출1  카드7->7
+  [raw] integ_film_both           2869ms  호출1  카드7->7
+  [raw] integ_film_both           2842ms  호출1  카드7->7
+  [no-integ] integ_film_both           9309ms  호출2  카드5->5
+  [no-integ] integ_film_both          13915ms  호출2  카드5->5
+  [bypass] integ_film_both          13836ms  호출3  카드4->3
+  [bypass] integ_film_both          16578ms  호출3  카드5->3
+  [full] integ_film_both          18431ms  호출3  카드5->3
+  [full] integ_film_both          15769ms  호출3  카드5->2
+  [plain-rag] integ_fish_dup            1438ms  호출1  카드4->4
+  [plain-rag] integ_fish_dup            1358ms  호출1  카드4->4
+  [raw] integ_fish_dup            1458ms  호출1  카드4->4
+  [raw] integ_fish_dup            1389ms  호출1  카드4->4
+  [no-integ] integ_fish_dup            8056ms  호출2  카드4->4
+  [no-integ] integ_fish_dup            5735ms  호출2  카드4->4
+  [bypass] integ_fish_dup            9067ms  호출3  카드4->4
+  [bypass] integ_fish_dup            9942ms  호출3  카드4->4
+  [full] integ_fish_dup            8791ms  호출3  카드4->4
+  [full] integ_fish_dup            9723ms  호출3  카드4->4
+  [plain-rag] integ_fish_conf           1323ms  호출1  카드4->4
+  [plain-rag] integ_fish_conf           1249ms  호출1  카드4->4
+  [raw] integ_fish_conf           2042ms  호출1  카드4->4
+  [raw] integ_fish_conf           1741ms  호출1  카드4->4
+  [no-integ] integ_fish_conf           5936ms  호출2  카드4->4
+  [no-integ] integ_fish_conf           7573ms  호출2  카드4->4
+  [bypass] integ_fish_conf          11023ms  호출3  카드4->4
+  [bypass] integ_fish_conf           9414ms  호출3  카드4->4
+  [full] integ_fish_conf           8902ms  호출3  카드4->4
+  [full] integ_fish_conf           9834ms  호출3  카드4->4
+  [plain-rag] integ_fish_both           1540ms  호출1  카드7->7
+  [plain-rag] integ_fish_both           1637ms  호출1  카드7->7
+  [raw] integ_fish_both           2215ms  호출1  카드7->7
+  [raw] integ_fish_both           1910ms  호출1  카드7->7
+  [no-integ] integ_fish_both           8906ms  호출2  카드6->6
+  [no-integ] integ_fish_both           8899ms  호출2  카드6->6
+  [bypass] integ_fish_both          15555ms  호출3  카드6->6
+  [bypass] integ_fish_both          16988ms  호출3  카드6->6
+  [full] integ_fish_both          17090ms  호출3  카드6->6
+  [full] integ_fish_both          15911ms  호출3  카드6->6
+  [plain-rag] integ_battery_dup          967ms  호출1  카드4->4
+  [plain-rag] integ_battery_dup          920ms  호출1  카드4->4
+  [raw] integ_battery_dup         1335ms  호출1  카드4->4
+  [raw] integ_battery_dup         1333ms  호출1  카드4->4
+  [no-integ] integ_battery_dup         6216ms  호출2  카드4->4
+  [no-integ] integ_battery_dup         5967ms  호출2  카드4->4
+  [bypass] integ_battery_dup         8811ms  호출3  카드4->3
+  [bypass] integ_battery_dup        11361ms  호출3  카드4->2
+  [full] integ_battery_dup         9784ms  호출3  카드4->1
+  [full] integ_battery_dup        11041ms  호출3  카드4->2
+  [plain-rag] integ_battery_conf        1222ms  호출1  카드4->4
+  [plain-rag] integ_battery_conf        1103ms  호출1  카드4->4
+  [raw] integ_battery_conf        1723ms  호출1  카드4->4
+  [raw] integ_battery_conf        1995ms  호출1  카드4->4
+  [no-integ] integ_battery_conf        5688ms  호출2  카드4->4
+  [no-integ] integ_battery_conf        6003ms  호출2  카드4->4
+  [bypass] integ_battery_conf       10695ms  호출3  카드4->3
+  [bypass] integ_battery_conf       12483ms  호출3  카드4->2
+  [full] integ_battery_conf       10055ms  호출3  카드4->3
+  [full] integ_battery_conf        9919ms  호출3  카드4->3
+  [plain-rag] integ_battery_both        1689ms  호출1  카드7->7
+  [plain-rag] integ_battery_both        1879ms  호출1  카드7->7
+  [raw] integ_battery_both        2304ms  호출1  카드7->7
+  [raw] integ_battery_both        2104ms  호출1  카드7->7
+  [no-integ] integ_battery_both        8920ms  호출2  카드5->5
+  [no-integ] integ_battery_both        9220ms  호출2  카드5->5
+  [bypass] integ_battery_both       14146ms  호출3  카드5->2
+  [bypass] integ_battery_both       13180ms  호출3  카드5->2
+  [full] integ_battery_both       12710ms  호출3  카드5->2
+  [full] integ_battery_both       13402ms  호출3  카드5->2
+
+====================================================================================================
+구성                        총지연ms     1층ms     2층ms     최종ms     호출    카드전    카드후    답변자    인용    오류   오염   실패   
+----------------------------------------------------------------------------------------------------
+plain-rag@integ/duplicate 1395.3    0.0      0.0      1395.3   1.0   4.0    4.0    254.0  0.0   0    0    0    
+raw@integ/duplicate       1362.1    0.0      0.0      1361.8   1.0   4.0    4.0    299.5  4.0   0    0    0    
+no-integ@integ/duplicate  6281.5    4664.2   0.0      1462.9   2.0   4.0    4.0    295.0  4.0   0    0    0    
+bypass@integ/duplicate    10189.5   5108.3   3448.3   1365.2   3.0   4.0    2.5    225.5  2.5   0    0    0    
+full@integ/duplicate      10412.3   5186.0   3689.2   1324.2   3.0   4.0    3.0    232.0  3.0   0    0    0    
+plain-rag@integ/conflict  1285.9    0.0      0.0      1285.9   1.0   4.0    4.0    408.0  0.0   0    0    0    
+raw@integ/conflict        2018.5    0.1      0.0      2018.1   1.0   4.0    4.0    461.5  4.0   0    0    0    
+no-integ@integ/conflict   6586.2    4092.7   0.0      1889.5   2.0   4.0    4.0    418.0  4.0   0    0    0    
+bypass@integ/conflict     11753.0   4491.8   4797.3   1765.4   3.0   4.0    3.5    378.5  3.0   0    0    0    
+full@integ/conflict       9987.1    4295.3   4239.2   1617.5   3.0   4.0    3.5    395.5  3.5   0    0    0    
+plain-rag@integ/both      1784.0    0.0      0.0      1784.0   1.0   7.0    7.0    573.5  0.0   0    0    0    
+raw@integ/both            2259.6    0.1      0.0      2259.3   1.0   7.0    7.0    658.5  7.0   0    0    0    
+no-integ@integ/both       9070.0    7238.4   0.0      1877.2   2.0   5.0    5.0    498.0  5.0   0    0    0    
+bypass@integ/both         14850.6   6963.3   6330.5   1738.0   3.0   5.0    3.0    422.5  2.5   0    0    0    
+full@integ/both           15840.0   6964.7   7130.7   1625.0   3.0   5.0    2.5    417.5  2.0   0    0    0    
+====================================================================================================
+
+============================================================================================================
+구성                    n   gold채택↑    무관거부↑      출처환각↓      중복제거↑      중복인지↑      충돌탐지↑      보강보존↑      근거정밀↑      모달소실↓      인용유효↑      인용범위↑      인용정밀↑      요지충족↑      오염서술↓      ID누출↓      
+------------------------------------------------------------------------------------------------------------
+plain-rag@integ/duplicate6   -          -          -          -          -          -          -          -          0.00       -          -          -          1.00       0.00       0.00       
+raw@integ/duplicate   6   1.00       -          0.00       0.00       0.00       -          -          0.75       0.00       1.00       1.00       0.75       1.00       0.00       0.00       
+no-integ@integ/duplicate6   1.00       -          0.00       0.00       0.00       -          -          0.75       0.00       1.00       1.00       0.75       1.00       0.00       0.00       
+bypass@integ/duplicate6   1.00       -          0.00       0.67       0.67       -          -          0.92       0.00       1.00       1.00       0.92       0.83       0.00       0.00       
+full@integ/duplicate  6   1.00       -          0.00       0.67       0.67       -          -          0.92       0.00       1.00       1.00       0.92       0.89       0.00       0.00       
+plain-rag@integ/conflict6   -          -          -          -          -          -          -          -          0.00       -          -          -          0.94       0.00       0.00       
+raw@integ/conflict    6   1.00       -          0.00       -          -          0.00       -          0.75       0.00       1.00       1.00       0.75       0.94       0.00       0.00       
+no-integ@integ/conflict6   1.00       -          0.00       -          -          0.00       -          0.75       0.00       1.00       1.00       0.75       1.00       0.00       0.00       
+bypass@integ/conflict 6   1.00       -          0.00       -          -          0.83       -          0.65       0.00       1.00       1.00       0.69       1.00       0.00       0.00       
+full@integ/conflict   6   0.94       -          0.00       -          -          0.83       -          0.68       0.00       1.00       1.00       0.76       0.94       0.00       0.00       
+plain-rag@integ/both  6   -          -          -          -          -          -          -          -          0.00       -          -          -          1.00       1.33       0.00       
+raw@integ/both        6   1.00       0.00       0.00       0.00       0.00       0.00       -          0.43       0.00       1.00       1.00       0.45       1.00       2.00       0.00       
+no-integ@integ/both   6   1.00       0.83       0.00       0.00       0.00       0.00       -          0.57       0.00       1.00       1.00       0.60       1.00       0.00       0.00       
+bypass@integ/both     6   0.94       0.83       0.00       0.67       0.67       0.83       -          0.56       0.00       1.00       1.00       0.61       0.94       1.00       0.00       
+full@integ/both       6   1.00       0.83       0.00       0.67       0.67       0.83       -          0.53       0.00       1.00       1.00       0.60       0.94       0.33       0.00       
+============================================================================================================
+총 소요 767.2s
+
+########## 전체집계 DILUTION (그룹 미분리) ##########
+패킷 12개 x 반복 1회 x 구성 5종
+비전 백엔드: gemini
+  (워밍업 1회 완료)
+  [plain-rag] dil_film_0                 885ms  호출1  카드3->3
+  [raw] dil_film_0                1296ms  호출1  카드3->3
+  [no-integ] dil_film_0                4520ms  호출2  카드3->3
+  [bypass] dil_film_0                6339ms  호출3  카드3->3
+  [full] dil_film_0                6889ms  호출3  카드3->1
+  [plain-rag] dil_film_2                1604ms  호출1  카드5->5
+  [raw] dil_film_2                1451ms  호출1  카드5->5
+  [no-integ] dil_film_2                4890ms  호출2  카드3->3
+  [bypass] dil_film_2                8444ms  호출3  카드3->2
+  [full] dil_film_2                7557ms  호출3  카드3->2
+  [plain-rag] dil_film_4                1087ms  호출1  카드7->7
+  [raw] dil_film_4                1918ms  호출1  카드7->7
+  [no-integ] dil_film_4                5340ms  호출2  카드3->3
+  [bypass] dil_film_4               10793ms  호출3  카드3->1
+  [full] dil_film_4                8144ms  호출3  카드3->1
+  [plain-rag] dil_film_6                1097ms  호출1  카드9->9
+  [raw] dil_film_6                1429ms  호출1  카드9->9
+  [no-integ] dil_film_6                6387ms  호출2  카드3->3
+  [bypass] dil_film_6                9469ms  호출3  카드3->3
+  [full] dil_film_6                8608ms  호출3  카드3->3
+  [plain-rag] dil_fish_0                1009ms  호출1  카드3->3
+  [raw] dil_fish_0                1225ms  호출1  카드3->3
+  [no-integ] dil_fish_0                4573ms  호출2  카드3->3
+  [bypass] dil_fish_0                6829ms  호출3  카드3->3
+  [full] dil_fish_0                6723ms  호출3  카드3->3
+  [plain-rag] dil_fish_2                1189ms  호출1  카드5->5
+  [raw] dil_fish_2                1777ms  호출1  카드5->5
+  [no-integ] dil_fish_2                5169ms  호출2  카드3->3
+  [bypass] dil_fish_2                7300ms  호출3  카드3->3
+  [full] dil_fish_2                7222ms  호출3  카드3->3
+  [plain-rag] dil_fish_4                 877ms  호출1  카드7->7
+  [raw] dil_fish_4                1596ms  호출1  카드7->7
+  [no-integ] dil_fish_4                5493ms  호출2  카드3->3
+  [bypass] dil_fish_4                8232ms  호출3  카드3->3
+  [full] dil_fish_4                9328ms  호출3  카드3->3
+  [plain-rag] dil_fish_6                1232ms  호출1  카드9->9
+  [raw] dil_fish_6                1786ms  호출1  카드9->9
+  [no-integ] dil_fish_6                6310ms  호출2  카드3->3
+  [bypass] dil_fish_6                8460ms  호출3  카드3->3
+  [full] dil_fish_6                7904ms  호출3  카드3->3
+  [plain-rag] dil_battery_0              879ms  호출1  카드3->3
+  [raw] dil_battery_0             1222ms  호출1  카드3->3
+  [no-integ] dil_battery_0             4986ms  호출2  카드3->3
+  [bypass] dil_battery_0             7529ms  호출3  카드3->3
+  [full] dil_battery_0             6196ms  호출3  카드3->3
+  [plain-rag] dil_battery_2             1452ms  호출1  카드5->5
+  [raw] dil_battery_2             1551ms  호출1  카드5->5
+  [no-integ] dil_battery_2             5079ms  호출2  카드3->3
+  [bypass] dil_battery_2             7186ms  호출3  카드3->3
+  [full] dil_battery_2             7367ms  호출3  카드3->3
+  [plain-rag] dil_battery_4             1533ms  호출1  카드7->7
+  [raw] dil_battery_4             1760ms  호출1  카드7->7
+  [no-integ] dil_battery_4             5533ms  호출2  카드3->3
+  [bypass] dil_battery_4             7566ms  호출3  카드3->2
+  [full] dil_battery_4             7446ms  호출3  카드3->1
+  [plain-rag] dil_battery_6             1127ms  호출1  카드9->9
+  [raw] dil_battery_6             2599ms  호출1  카드9->9
+  [no-integ] dil_battery_6             6192ms  호출2  카드3->3
+  [bypass] dil_battery_6             8297ms  호출3  카드3->3
+  [full] dil_battery_6             7585ms  호출3  카드3->2
+
+====================================================================================================
+구성                        총지연ms     1층ms     2층ms     최종ms     호출    카드전    카드후    답변자    인용    오류   오염   실패   
+----------------------------------------------------------------------------------------------------
+plain-rag                 1112.0    0.0      0.0      1112.0   1.0   6.0    6.0    304.5  0.0   0    0    0    
+raw                       1573.5    0.1      0.0      1573.1   1.0   6.0    6.0    390.5  5.0   0    0    0    
+no-integ                  5254.7    4112.5   0.0      1172.4   2.0   3.0    3.0    243.0  3.0   0    0    0    
+bypass                    7898.8    4105.4   2243.3   1199.3   3.0   3.0    3.0    246.0  3.0   0    0    0    
+full                      7501.6    4141.1   2214.7   1158.1   3.0   3.0    3.0    250.0  3.0   0    0    0    
+====================================================================================================
+
+제안 구조의 지연 증가율: +376.7%  (raw 1574ms -> full 7502ms)
+
+============================================================================================================
+구성                    n   gold채택↑    무관거부↑      출처환각↓      중복제거↑      중복인지↑      충돌탐지↑      보강보존↑      근거정밀↑      모달소실↓      인용유효↑      인용범위↑      인용정밀↑      요지충족↑      오염서술↓      ID누출↓      
+------------------------------------------------------------------------------------------------------------
+plain-rag             12  -          -          -          -          -          -          -          -          0.00       -          -          -          0.92       0.50       0.00       
+raw                   12  1.00       0.00       0.00       -          -          -          -          0.59       0.00       1.00       1.00       0.70       1.00       0.33       0.00       
+no-integ              12  1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       1.00       0.00       0.00       
+bypass                12  1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.97       0.00       0.00       
+full                  12  1.00       1.00       0.00       -          -          -          -          1.00       0.00       1.00       1.00       1.00       0.94       0.00       0.00       
+============================================================================================================
+총 소요 355.4s
+########## DONE ##########
