@@ -1,0 +1,6 @@
+PyYAML>=6.0
+numpy>=1.24
+Pillow>=10.0
+# Use one OpenCV distribution across the data and encoder modules on Windows.
+opencv-python>=4.8
+torch>=2.1

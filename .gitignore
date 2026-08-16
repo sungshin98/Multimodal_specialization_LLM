@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+
+# Dataset downloads, derived JSONL, sampled frames and model caches.
+data/karina/
+.cache/huggingface/
+reports/local_experiment/
+modular_encoder/checkpoints/
+

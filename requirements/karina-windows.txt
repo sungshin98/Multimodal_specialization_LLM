@@ -1,0 +1,16 @@
+# Reproducible Windows/Python 3.11 stack. PyTorch is installed separately.
+numpy==1.26.4
+PyYAML==6.0.2
+Pillow==11.1.0
+opencv-python==4.11.0.86
+python-docx==1.1.2
+pypdf==5.3.0
+psutil==6.1.1
+scipy==1.15.2
+soundfile==0.13.1
+python-dotenv==1.0.1
+transformers==4.49.0
+sentence-transformers==3.4.1
+safetensors==0.5.3
+huggingface-hub==0.29.2
+

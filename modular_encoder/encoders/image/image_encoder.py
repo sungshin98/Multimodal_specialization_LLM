@@ -31,6 +31,15 @@ class ImageEncoder:
                 return_tensors="pt",
             )
 
+        # InputRouter may move the model to CUDA after construction. Keep the
+        # processor tensors on the same device; otherwise GPU runs fail with a
+        # CPU/CUDA device mismatch while CPU tests continue to pass unnoticed.
+        device = next(self.model.parameters()).device
+        inputs = {
+            key: value.to(device) if hasattr(value, "to") else value
+            for key, value in inputs.items()
+        }
+
         with torch.no_grad():
             pooled_embedding = self.model(
                 **inputs

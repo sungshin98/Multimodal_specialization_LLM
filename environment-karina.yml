@@ -1,0 +1,12 @@
+name: karina
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - git
+  - ffmpeg
+
+# PyTorch is intentionally installed by scripts/windows/01_setup_env.ps1.
+# Official PyTorch Windows wheels are distributed through a separate index.
+

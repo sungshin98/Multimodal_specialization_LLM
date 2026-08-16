@@ -1,0 +1,36 @@
+schema_version: karina.movie.v1
+data_root: data/karina
+
+movieqa:
+  enabled: true
+  benchmark_dir: raw/movieqa/benchmark
+  output_dir: processed/movieqa
+  splits: [train, val, test]
+  max_video_clips_per_sample: 2
+
+movienet:
+  enabled: false
+  root_dir: raw/movienet
+  evidence_output: processed/evidence/movienet.jsonl
+  text_dirs: [subtitle, subtitles, script, scripts, synopsis, synopses, meta]
+  image_dirs: [keyframes, keyframe, images, posters]
+  video_dirs: [videos, clips, trailers]
+
+moviechat_1k:
+  enabled: false
+  root_dir: raw/moviechat_1k
+  output_file: processed/moviechat_1k/generalization_test.jsonl
+  split: generalization_test
+
+frame_cache:
+  root_dir: cache/frames
+  frames_per_video: 4
+  jpeg_quality: 90
+  overwrite: false
+
+runtime:
+  batch_size: 2
+  num_workers: 0
+  max_text_chars_per_asset: 4000
+  pin_memory: true
+

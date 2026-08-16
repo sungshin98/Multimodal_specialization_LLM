@@ -1,0 +1,16 @@
+data_config: configs/karina_data.yaml
+report_dir: reports/local_experiment
+smoke_asset_dir: data/karina/smoke_assets
+device: auto
+prepare_limit: 20
+
+pretrained_models:
+  text: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  image: openai/clip-vit-base-patch32
+  video: MCG-NJU/videomae-base-finetuned-kinetics
+  video_frames: 16
+
+checkpoints:
+  base: modular_encoder/checkpoints/resplit_135/joint_finetuned_best.pt
+  video: modular_encoder/checkpoints/video_added/video_projection_best.pt
+
